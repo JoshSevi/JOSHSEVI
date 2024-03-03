@@ -11,7 +11,7 @@ function animateMainScreen() {
     // Animate the image to fade in and scale up slightly for the parallax effect
     gsap.to('#person-img', { duration: 1, opacity: 40, scale: 1.4, delay: 0.8 });
     // Move the text up slightly slower than the image appearance
-    gsap.to('h1', { duration: 1.5, y: -280, delay: 2.5 }); // Adjust 'y' for the amount of upward movement
+    gsap.to('h1', { duration: 1.5, y: -160, delay: 2.5 }); // Adjust 'y' for the amount of upward movement
 }
 
 document.getElementById('nav-toggle').addEventListener('click', function() {

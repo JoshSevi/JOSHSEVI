@@ -21,7 +21,7 @@ body, html {
 
 h1 {
     font-size: 15em; /* Increased font size */
-    font-weight: bold; /* Make the text bolder */
+    font-weight: bolder; /* Make the text bolder */
     text-align: center;
     z-index: 0; /* Text is behind the image */
     position: absolute;
