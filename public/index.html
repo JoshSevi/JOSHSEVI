@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Josh Sevi</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
 <div id="splash-screen" class="screen">
@@ -13,7 +14,29 @@
 <div id="main-screen" class="screen hidden">
     <h1>JOSH SEVI</h1>
     <img src="img/person.png" alt="Person" id="person-img">
-    <div id="burger-menu">☰</div>
+    <nav role="navigation">
+        <div id="menuToggle">
+            <!-- Hidden checkbox is used as click receiver, so you can use the :checked selector on it -->
+            <input type="checkbox" />
+
+            <!-- Hamburger icon -->
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <!-- Menu items -->
+            <div id="menu">
+                <a href="works.html">Works</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
 <script src="script.js"></script>
