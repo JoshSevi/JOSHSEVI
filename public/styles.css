@@ -1,0 +1,63 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background-color: #fff; /* Assuming white background, change as needed */
+}
+
+.screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative; /* Stacking context */
+}
+
+#main-screen.hidden {
+    display: none;
+}
+
+h1 {
+    font-size: 15em; /* Increased font size */
+    font-weight: bold; /* Make the text bolder */
+    text-align: center;
+    z-index: 0; /* Text is behind the image */
+    position: absolute;
+    top: 35%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Centering adjustment */
+    white-space: nowrap; /* Ensures text stays in one line */
+}
+
+#person-img {
+    width: auto; /* Adjust width as necessary */
+    height: auto; /* Adjust height as necessary */
+    max-width: 100%;
+    max-height: 60%; /* Adjust max-height as necessary */
+    position: absolute;
+    bottom: 0; /* Align to the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Centering adjustment for horizontal alignment */
+    z-index: 1; /* Image in front of the text */
+    opacity: 0; /* Start with image hidden */
+}
+
+#burger-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 2; /* Menu is above all other content */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 8em; /* Smaller font size for mobile devices */
+        white-space: normal; /* Allows text wrapping */
+        line-height: 0.9; /* Adjust line height to manage spacing between lines */
+    }
+}
