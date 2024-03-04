@@ -1,7 +1,7 @@
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     overflow: hidden;
     background-color: #d9d9d9; /* Assuming white background, change as needed */
 }
@@ -32,17 +32,20 @@ h1 {
     white-space: nowrap; /* Ensures text stays in one line */
 }
 
+
+
 #person-img {
     width: auto; /* Adjust width as necessary */
     height: auto; /* Adjust height as necessary */
     max-width: 100%;
-    max-height: 60%; /* Adjust max-height as necessary */
+    max-height: 100%; /* Adjust max-height as necessary */
     position: absolute;
-    bottom: 0; /* Align to the bottom */
+    bottom: 0vh; /* Align to the bottom */
     left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Centering adjustment for horizontal alignment */
+    transform: translate(-35%, 5%); /* Centering adjustment for horizontal alignment */
     z-index: 1; /* Image in front of the text */
     opacity: 0; /* Start with image hidden */
+    scale: 140%;
 }
 
 /* Navigation Menu CSS */
@@ -70,8 +73,8 @@ h1 {
 
 #menuToggle span {
     display: block;
-    width: 35px;
-    height: 4px;
+    width: 28px;
+    height: 2px;
     margin-bottom: 2px;
     position: relative;
     background: #181818;
@@ -150,13 +153,13 @@ h1 {
 #menu a {
     text-decoration: none;
     color: #d9d9d9; /* Set text color to white */
-    font-size: 2em; /* Set font size */
+    font-size: 8em; /* Set font size */
     padding: 20px; /* Set padding for tap targets */
     transition: color 0.3s;
 }
 
 #menu a:hover {
-    color: #999999; /* Hover state color */
+    color: #da2323; /* Hover state color */
 }
 
 .social-icons a {
@@ -167,31 +170,42 @@ h1 {
 
 .social-icons {
     margin-top: 50px; /* Space from the navigation links */
+    font-size: 5px; /* Adjust social icon size for mobile */
 }
 
 /* Hide the menu by default */
 
 .social-icons a:hover {
-    color: #999; /* Social media icons hover color */
+    color: #e81b1b; /* Social media icons hover color */
 }
 
 /* Media query for mobile devices */
 @media (max-width: 768px) {
     h1 {
-        font-size: 8em;
-    / Smaller font size for mobile devices / white-space: normal;
-    / Allows text wrapping / line-height: 1;
-    / Adjust line height to manage spacing between lines * /
+        /* font-size: 6em; */ /* Smaller font size for mobile devices */
+        white-space: normal; /* Allows text wrapping */
+        line-height: 1; /* Adjust line height to manage spacing between lines */
+        font-size: 12vw; /* Adjust font size for smaller screens */
+        text-align: center;
     }
-}
 
-#menu a {
-    font-size: 1.5em; /* Adjust link size for mobile */
-}
+    #person-img {
+        max-height: 40vh; /* Adjust image size for smaller screens */
+        bottom: 5vh;
+    }
 
-.social-icons a {
-    font-size: 1.5em; /* Adjust social icon size for mobile */
-}
+    #menuToggle {
+        visibility: visible;
+    }
 
+    #menu a {
+        font-size: 5.5em; /* Adjust link size for mobile */
+    }
+
+    .social-icons a {
+        font-size: 1.5em; /* Adjust social icon size for mobile */
+    }
+
+}
 
 

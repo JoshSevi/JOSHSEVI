@@ -9,14 +9,14 @@ window.addEventListener('load', () => {
 
 function animateMainScreen() {
     // Animate the image to fade in and scale up slightly for the parallax effect
-    gsap.to('#person-img', { duration: 2, opacity: 40, scale: 1.4, delay: 1 });
+    gsap.to('#person-img', { duration: 1.5, opacity: 100, scale: 0.7, delay: 1 });
     // Move the text up slightly slower than the image appearance
-    gsap.to('h1', { duration: 2, y: -160, delay: 1.1 }); // Adjust 'y' for the amount of upward movement
+    gsap.to('h1', { duration: 2, y: -200, delay: 1.1, scale: 1 }); // Adjust 'y' for the amount of upward movement
 
     // Show menu toggle after a delay
     setTimeout(() => {
         document.getElementById('menuToggle').style.visibility = 'visible';
-    }, 4000); // Adjust the delay time as needed (in milliseconds)
+    }, 3000); // Adjust the delay time as needed (in milliseconds)
 }
 
 window.addEventListener('DOMContentLoaded', () => {
