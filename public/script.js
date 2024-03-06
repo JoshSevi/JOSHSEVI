@@ -1,53 +1,132 @@
+function loco() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // --- SETUP START ---
+    // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+    const locoScroll = new LocomotiveScroll({
+        el: document.querySelector("main"),
+        smooth: true,
+        tablet: { smooth: true }, // for tablet smooth
+        smartphone: { smooth: true } // for mobile
+    });
+
+    // Tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
+    ScrollTrigger.scrollerProxy("main", {
+        scrollTop(value) {
+            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+        }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+        getBoundingClientRect() {
+            return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+        },
+        pinType: document.querySelector("main").style.transform ? "transform" : "fixed" // LocomotiveScroll handles things differently on mobile devices
+    });
+
+    // Each time the window updates, refresh ScrollTrigger and then update LocomotiveScroll
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    ScrollTrigger.defaults({ scroller: "main" });
+    // --- SETUP END ---
+
+    // After everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+    ScrollTrigger.refresh();
+}
+
+loco();
+
 window.addEventListener('load', () => {
     // Assuming the splash screen is shown for 2 seconds
     setTimeout(() => {
-        document.getElementById('splash-screen').style.display = 'none';
+        document.getElementById('splashscreen').style.display = 'none';
         document.getElementById('main-screen').classList.remove('hidden');
         animateMainScreen();
+        loco();
     }, 2000);
 });
 
 function animateMainScreen() {
     // Animate the image to fade in and scale up slightly for the parallax effect
-    gsap.to('#person-img', { duration: 1.5, opacity: 100, scale: 0.7, delay: 1 });
+    gsap.to('#main-image', { duration: 1.5, opacity: 100, scale: 0.9, delay: 1 });
     // Move the text up slightly slower than the image appearance
-    gsap.to('h1', { duration: 2, y: -200, delay: 1.1, scale: 1 }); // Adjust 'y' for the amount of upward movement
-
+    gsap.to('#main-text h1', { duration: 2, y: -180, delay: 1.1, scale: 3 }); // Adjust 'y' for the amount of upward movement
     // Show menu toggle after a delay
     setTimeout(() => {
         document.getElementById('menuToggle').style.visibility = 'visible';
     }, 3000); // Adjust the delay time as needed (in milliseconds)
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    // Select the elements
-    const menuToggle = document.querySelector('#menuToggle input');
-    const menu = document.getElementById('menu');
 
-    menuToggle.addEventListener('change', function() {
-        if (this.checked) {
-            // Show menu
-            menu.style.display = 'flex';
-        } else {
-            // Hide menu
-            menu.style.display = 'none';
-        }
+
+
+
+
+const menuToggle = document.getElementById('menuToggle');
+const checkbox = menuToggle.querySelector('input[type="checkbox"]');
+const spans = menuToggle.querySelectorAll('span');
+
+const mainScreenSection = document.getElementById('main-screen');
+const aboutSection = document.getElementById('about');
+
+const menu = document.getElementById('menu');
+const links = document.querySelectorAll('#menu-nav a, #menu-social a');
+
+// Function to set span colors based on section and checkbox status
+function setSpanColorsForMainScreen(isChecked) {
+    spans.forEach(span => {
+        // If checkbox is checked, set span color to white, else black
+        span.style.backgroundColor = isChecked ? "#FFFFFF" : "#000000";
+        // Adjust box-shadow color based on isChecked state
+        span.style.boxShadow = isChecked ? "0px 2px 8px #d9d9d9" : "0px 2px 8px #181818";
     });
+}
+
+function setSpanColorsForAboutSection(isChecked) {
+    spans.forEach(span => {
+        // If checkbox is checked, set span color to black, else white
+        span.style.backgroundColor = isChecked ? "#000000" : "#FFFFFF";
+        // Animate box-shadow color change with GSAP, based on isChecked
+        gsap.to(span, { boxShadow: isChecked ? "0px 2px 8px #181818" : "0px 2px 8px #d9d9d9", delay: 0.5 });
+    });
+}
+
+ScrollTrigger.create({
+    trigger: mainScreenSection,
+    start: "top top",
+    end: "bottom top",
+    onEnter: () => {
+        setSpanColorsForMainScreen(checkbox.checked);
+        menu.style.backgroundColor = "#181818";
+        links.forEach(link => {
+            link.style.color = "#d9d9d9";
+        });
+    },
 });
 
-
-
-
-// Commenting out the previous burger menu interaction script
-// As it is no longer necessary with the new navigation menu
-/*
-document.getElementById('nav-toggle').addEventListener('click', function() {
-    this.classList.toggle('active');
-    document.getElementById('fullscreen-nav').classList.toggle('active');
+ScrollTrigger.create({
+    trigger: aboutSection,
+    start: "top top",
+    end: "bottom top",
+    onEnter: () => {
+        setSpanColorsForAboutSection(checkbox.checked);
+        menu.style.backgroundColor = "#d9d9d9";
+        links.forEach(link => {
+            link.style.color = "#181818";
+        });
+    },
+    onLeaveBack: () => {
+        setSpanColorsForMainScreen(checkbox.checked);
+        menu.style.backgroundColor = "#181818";
+        links.forEach(link => {
+            link.style.color = "#d9d9d9";
+        });
+    },
 });
 
-document.querySelector('.close-btn').addEventListener('click', function() {
-    document.getElementById('fullscreen-nav').classList.remove('active');
-    document.getElementById('nav-toggle').classList.remove('active');
+// Listen for changes on the checkbox to adjust styles dynamically
+checkbox.addEventListener('change', () => {
+    if (mainScreenSection.getBoundingClientRect().bottom >= 0 && mainScreenSection.getBoundingClientRect().top <= window.innerHeight) {
+        // If the main-screen section is fully or partially visible
+        setSpanColorsForMainScreen(checkbox.checked);
+    } else if (aboutSection.getBoundingClientRect().top <= window.innerHeight && aboutSection.getBoundingClientRect().bottom >= 0) {
+        // If the about section is fully or partially visible
+        setSpanColorsForAboutSection(checkbox.checked);
+    }
 });
-*/

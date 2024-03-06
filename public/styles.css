@@ -1,59 +1,23 @@
-body, html {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
     height: 100%;
+    width: 100%;
     margin: 0;
     font-family: 'Helvetica', sans-serif;
-    overflow: hidden;
-    background-color: #d9d9d9; /* Assuming white background, change as needed */
+    position: relative;
+    flex-direction: column;
 }
 
-.screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    position: relative; /* Stacking context */
-}
-
-#main-screen.hidden {
-    display: none;
-}
-
-h1 {
-    font-size: 15em; /* Increased font size */
-    font-weight: bolder; /* Make the text bolder */
-    text-align: center;
-    color: #181818; /* Text color changed to black */
-    z-index: 0; /* Ensure text is above other content */
-    position: absolute;
-    top: 35%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Centering adjustment */
-    white-space: nowrap; /* Ensures text stays in one line */
-}
-
-
-
-#person-img {
-    width: auto; /* Adjust width as necessary */
-    height: auto; /* Adjust height as necessary */
-    max-width: 100%;
-    max-height: 100%; /* Adjust max-height as necessary */
-    position: absolute;
-    bottom: 0vh; /* Align to the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translate(-35%, 5%); /* Centering adjustment for horizontal alignment */
-    z-index: 1; /* Image in front of the text */
-    opacity: 0; /* Start with image hidden */
-    scale: 140%;
-}
-
-/* Navigation Menu CSS */
+/*----NAV MENU----*/
 #menuToggle {
     position: absolute;
     top: 40px; /* Adjust top position as needed */
     right: 50px; /* Position to the upper right */
-    z-index: 3;
     -webkit-user-select: none;
     user-select: none;
     visibility: hidden; /* Initially hide the menu toggle */
@@ -68,7 +32,7 @@ h1 {
     position: absolute;
     cursor: pointer;
     opacity: 0; /* hide this */
-    z-index: 10;
+    z-index: 81;
 }
 
 #menuToggle span {
@@ -79,13 +43,14 @@ h1 {
     position: relative;
     background: #181818;
     border-radius: 4px;
-    z-index: 3;
     transform-origin: 0px 0px;
+    box-shadow:none;
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-    opacity 0.55s ease;
+    opacity 0.55s ease,
+    box-shadow 0.5s ease; /* Add box-shadow transition */
+    z-index: 80;
 }
-
 
 #menuToggle span:first-child
 {
@@ -101,15 +66,14 @@ h1 {
 #menuToggle span:nth-last-child(3)
 {
     opacity: 0;
-
 }
 
 #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(0px, -11px);
-    background: #d9d9d9;
+    background: #d9d9d9 !important; /* Ensure this style has priority when input is checked */
+    box-shadow: 0px 2px 8px #d9d9d9 !important;
 }
-
 
 #menuToggle input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, 6px);
@@ -118,22 +82,6 @@ h1 {
 #menuToggle input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-
-#menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgb(24, 24, 24); /* Overlay background */
-    display: none; /* Initially hide the menu */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 2; /* Above the content */
-    transition: all 0.5s ease;
 }
 
 #menuToggle input:checked ~ #menu {
@@ -150,48 +98,263 @@ h1 {
     z-index: 2; /* Make sure it's above other content */
 }
 
-#menu a {
-    text-decoration: none;
-    color: #d9d9d9; /* Set text color to white */
-    font-size: 8em; /* Set font size */
-    padding: 20px; /* Set padding for tap targets */
-    transition: color 0.3s;
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(24, 24, 24); /* Overlay background */
+    display: none; /* Initially hide the menu */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Above the content */
+    transition: all 0.5s ease;
 }
 
+/* Menu Navigation */
+#menu-nav {
+    display: flex;
+    flex-direction: column; /* Display links vertically */
+    align-items: center; /* Center links horizontally */
+}
+
+#menu-nav a {
+    text-decoration: none;
+    color: #d9d9d9; /* Set text color */
+    font-size: 8.5em; /* Set font size */
+    font-weight: bold; /* Set text to bold */
+    margin-bottom: 10px; /* Add space between links */
+}
+
+/* Menu Social */
+#menu-social {
+    display: flex;
+    justify-content: center; /* Center icons horizontally */
+    margin-top: 20px; /* Add space from menu navigation */
+}
+
+#menu-social a {
+    text-decoration: none;
+    color: #d9d9d9; /* Set icon color */
+    font-size: 2.5em; /* Set icon size */
+    margin: 0 10px; /* Add space between icons */
+}
+
+
 #menu a:hover {
-    color: #da2323; /* Hover state color */
+    color: #9d9d9d; /* Hover state color */
+}
+
+/*----MAIN----*/
+main{
+    position: relative;
+    overflow: hidden;
+    background-color: #181818;
+}
+
+.separator {
+    height: 0; /* Adjust separator height */
+    clear: both; /* Ensures sections don't overlap the separator */
+}
+
+/*----SPLASH SCREEN----*/
+#splashscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed; /* Stacking context */
+    background-color: #181818;
+    z-index: 100;
+}
+
+#splashscreen-text h1{
+    font-size: 5em; /* Increased font size */
+    font-weight: bolder; /* Make the text bolder */
+    text-align: center;
+    color: #181818; /* Text color changed to black */
+    z-index: 101; /* Ensure text is above other content */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Centering adjustment */
+    white-space: nowrap; /* Ensures text stays in one line */
+}
+
+/*----MAINSCREEN----*/
+#main-screen {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #d9d9d9;
+    z-index: 15; /* Image in front of the text */
+    overflow: hidden;
+}
+
+#main-screen.hidden {
+    display: none;
+}
+
+#main-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Centering adjustment */
+}
+
+#main-text h1 {
+    font-size: 5em; /* Increased font size */
+    font-weight: bolder; /* Make the text bolder */
+    text-align: center;
+    color: #181818; /* Text color changed to black */
+
+}
+
+#main-image {
+    position: absolute;
+    bottom: 0; /* Position the image at the bottom of the section */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%) translateY(2%) scale(2); /* Center horizontally and scale by a factor of 2 */
+    opacity: 0; /* Start with image hidden */
+    max-height: 75%; /* Set the maximum height to 80% of the container's height */
+    z-index: 17;
+}
+
+#main-image img {
+    width: auto; /* Allow the width to adjust */
+    height: auto; /* Allow the height to adjust */
+    max-width: 100%; /* Limit the width to the container's width */
+    max-height: 100%; /* Limit the height to the container's height */
+}
+
+/*----ABOUT----*/
+#about{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #181818;
+    z-index: 13;
+}
+
+/*----PROJECTS----*/
+#projects{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    z-index: 12;
+}
+
+/*----CONTACT----*/
+#contact{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    margin: 0%;
+    font-family: Arial, sans-serif;
+    color: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+.contact-section {
+    margin: 4%;
+}
+
+.contact-section h1 {
+    font-size: 4em;
+    margin: 0.2em 0;
+}
+
+.contact-section h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+}
+
+.contact-section button {
+    padding: 1em 2em;
+    margin: 1em 0;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: #d9d9d9;
+    color: #181818;
+    border-radius: 50px;
+    outline: none;
+}
+
+.contact-section button:hover {
+    background-color: #9d9d9d; /* Social media icons hover color */
+}
+
+.social-icons {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px; /* Adjust social icon size for mobile */
+    gap: 20px;
+    white-space: nowrap; /* Ensures text stays in one line */
 }
 
 .social-icons a {
     color: #d9d9d9;
+    justify-content: center;
     padding: 0 10px;
-    font-size: 2em; /* Social icon size */
+    font-size: 1.5em; /* Social icon size */
 }
 
-.social-icons {
-    margin-top: 50px; /* Space from the navigation links */
-    font-size: 5px; /* Adjust social icon size for mobile */
-}
+
 
 /* Hide the menu by default */
 
 .social-icons a:hover {
-    color: #e81b1b; /* Social media icons hover color */
+    color: #9d9d9d; /* Social media icons hover color */
 }
 
-/* Media query for mobile devices */
+/*----FOOTER----*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #d9d9d9;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 6;
+}
+
 @media (max-width: 768px) {
-    h1 {
+    #main-text h1 {
         /* font-size: 6em; */ /* Smaller font size for mobile devices */
         white-space: normal; /* Allows text wrapping */
         line-height: 1; /* Adjust line height to manage spacing between lines */
-        font-size: 12vw; /* Adjust font size for smaller screens */
+        font-size: 10vw; /* Adjust font size for smaller screens */
+        margin: 5000em;
         text-align: center;
+
     }
 
-    #person-img {
+    #splashscreen-text h1 {
+        /* font-size: 6em; */ /* Smaller font size for mobile devices */
+        white-space: normal; /* Allows text wrapping */
+        line-height: 1; /* Adjust line height to manage spacing between lines */
+        font-size: 10vw; /* Adjust font size for smaller screens */
+        text-align: center;
+        white-space: nowrap; /* Ensures text stays in one line */
+    }
+
+    #main-image {
         max-height: 40vh; /* Adjust image size for smaller screens */
-        bottom: 5vh;
+        bottom: 0vh;
+
     }
 
     #menuToggle {
@@ -202,8 +365,17 @@ h1 {
         font-size: 5.5em; /* Adjust link size for mobile */
     }
 
+    .contact-section h1 {
+        font-size: 2em;
+    }
+
+    .contact-section h1 {
+        font-size: 2em;
+    }
+
     .social-icons a {
         font-size: 1.5em; /* Adjust social icon size for mobile */
+        white-space: nowrap; /* Ensures text stays in one line */
     }
 
 }

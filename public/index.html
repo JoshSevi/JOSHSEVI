@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOSH SΞVI</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-<div id="splash-screen" class="screen">
-    <h1>JOSH SΞVI</h1>
-</div>
-<div id="main-screen" class="screen hidden">
-    <h1>JOSH SΞVI</h1>
-    <img src="img/person.png" alt="Person" id="person-img">
+<section id="splashscreen">
+    <div id="splashscreen-text">
+        <h1>JOSH SΞVI</h1>
+    </div>
+</section>
+
+<header>
     <nav role="navigation">
         <div id="menuToggle">
             <!-- Hidden checkbox is used as click receiver, so you can use the :checked selector on it -->
@@ -26,10 +28,12 @@
 
             <!-- Menu items -->
             <div id="menu">
-                <a href="works.html">WORKS</a>
-                <a href="about.html">ABOUT</a>
-                <a href="contact.html">CONTACT</a>
-                <div class="social-icons">
+                <div id="menu-nav">
+                    <a href="works.html">WORKS</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="contact.html">CONTACT</a>
+                </div>
+                <div id="menu-social" class="social-icons">
                     <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
                     <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
@@ -39,8 +43,84 @@
             </div>
         </div>
     </nav>
-</div>
+</header>
+<main>
+
+    <section id="main-screen" class="screen hidden">
+        <div></div>
+        <div id="main-text">
+            <h1>JOSH SΞVI</h1>
+        </div>
+        <div id="main-image">
+            <img src="img/profile.png">
+        </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section id="about">
+        <div>
+            <h3>JOSH SΞVI</h3>
+        </div>
+        <div>
+            <p>orem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque lobortis neque nec venenatis tincidunt.
+                Pellentesque vitae nibh posuere, vulputate nibh quis,
+                incidunt ex.
+            </p>
+        </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-showcase">
+            <div class="card1">
+                <h3>Project 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="card2">
+                <h3>Project 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="card3">
+                <h3>Project 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="project-button">
+                <button>VIEW ALL PROJECTS</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-section">
+            <h1>LET'S</h1>
+            <h1>CREATE SOMETHING</h1>
+            <h1>MEANINGFUL TOGETHER</h1>
+            <h2>(but not Forever)</h2>
+            <button onclick="location.href='mailto:example@example.com'">CONTACT ME</button>
+            <div class="social-icons">
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <footer id="footer" class="footer">
+            &copy; 2024 JOSH SΞVI
+        </footer>
+    </section>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="script.js"></script>
 </body>
 </html>
