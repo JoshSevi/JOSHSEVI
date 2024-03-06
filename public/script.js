@@ -53,18 +53,11 @@ function animateMainScreen() {
     }, 3000); // Adjust the delay time as needed (in milliseconds)
 }
 
-
-
-
-
-
 const menuToggle = document.getElementById('menuToggle');
 const checkbox = menuToggle.querySelector('input[type="checkbox"]');
 const spans = menuToggle.querySelectorAll('span');
-
 const mainScreenSection = document.getElementById('main-screen');
 const aboutSection = document.getElementById('about');
-
 const menu = document.getElementById('menu');
 const links = document.querySelectorAll('#menu-nav a, #menu-social a');
 
@@ -72,18 +65,18 @@ const links = document.querySelectorAll('#menu-nav a, #menu-social a');
 function setSpanColorsForMainScreen(isChecked) {
     spans.forEach(span => {
         // If checkbox is checked, set span color to white, else black
-        span.style.backgroundColor = isChecked ? "#FFFFFF" : "#000000";
+        span.style.backgroundColor = isChecked ? "var(--white)" : "var(--black)";
         // Adjust box-shadow color based on isChecked state
-        span.style.boxShadow = isChecked ? "0px 2px 8px #d9d9d9" : "0px 2px 8px #181818";
+        span.style.boxShadow = isChecked ? "0px 2px 8px var(--white)" : "0px 2px 8px var(--black)";
     });
 }
 
 function setSpanColorsForAboutSection(isChecked) {
     spans.forEach(span => {
         // If checkbox is checked, set span color to black, else white
-        span.style.backgroundColor = isChecked ? "#000000" : "#FFFFFF";
+        span.style.backgroundColor = isChecked ? "var(--black)" : "var(--white)";
         // Animate box-shadow color change with GSAP, based on isChecked
-        gsap.to(span, { boxShadow: isChecked ? "0px 2px 8px #181818" : "0px 2px 8px #d9d9d9", delay: 0.5 });
+        gsap.to(span, { boxShadow: isChecked ? "0px 2px 8px var(--black)" : "0px 2px 8px var(--white)", delay: 0.5 });
     });
 }
 
@@ -93,9 +86,9 @@ ScrollTrigger.create({
     end: "bottom top",
     onEnter: () => {
         setSpanColorsForMainScreen(checkbox.checked);
-        menu.style.backgroundColor = "#181818";
+        menu.style.backgroundColor = "var(--black)";
         links.forEach(link => {
-            link.style.color = "#d9d9d9";
+            link.style.color = "var(--white)";
         });
     },
 });
@@ -106,16 +99,16 @@ ScrollTrigger.create({
     end: "bottom top",
     onEnter: () => {
         setSpanColorsForAboutSection(checkbox.checked);
-        menu.style.backgroundColor = "#d9d9d9";
+        menu.style.backgroundColor = "var(--white)";
         links.forEach(link => {
-            link.style.color = "#181818";
+            link.style.color = "var(--black)";
         });
     },
     onLeaveBack: () => {
         setSpanColorsForMainScreen(checkbox.checked);
-        menu.style.backgroundColor = "#181818";
+        menu.style.backgroundColor = "var(--black)";
         links.forEach(link => {
-            link.style.color = "#d9d9d9";
+            link.style.color = "var(--white)";
         });
     },
 });

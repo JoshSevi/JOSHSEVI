@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --white: #d9d9d9;
+    --dark-white: #9d9d9d;
+    --grey: #181818;
+    --black: #111111;
+}
+
 html, body {
     height: 100%;
     width: 100%;
@@ -41,7 +48,7 @@ html, body {
     height: 2px;
     margin-bottom: 2px;
     position: relative;
-    background: #181818;
+    background: var(--black);
     border-radius: 4px;
     transform-origin: 0px 0px;
     box-shadow:none;
@@ -71,8 +78,8 @@ html, body {
 #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(0px, -11px);
-    background: #d9d9d9 !important; /* Ensure this style has priority when input is checked */
-    box-shadow: 0px 2px 8px #d9d9d9 !important;
+    background: var(--white) ; /* Ensure this style has priority when input is checked */
+    box-shadow: 0px 2px 8px var(--black);
 }
 
 #menuToggle input:checked ~ span:nth-last-child(2) {
@@ -104,7 +111,7 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(24, 24, 24); /* Overlay background */
+    background-color: var(--black); /* Overlay background */
     display: none; /* Initially hide the menu */
     flex-direction: column;
     justify-content: center;
@@ -122,7 +129,7 @@ html, body {
 
 #menu-nav a {
     text-decoration: none;
-    color: #d9d9d9; /* Set text color */
+    color: var(--white); /* Set text color */
     font-size: 8.5em; /* Set font size */
     font-weight: bold; /* Set text to bold */
     margin-bottom: 10px; /* Add space between links */
@@ -137,21 +144,21 @@ html, body {
 
 #menu-social a {
     text-decoration: none;
-    color: #d9d9d9; /* Set icon color */
+    color: var(--white); /* Set icon color */
     font-size: 2.5em; /* Set icon size */
     margin: 0 10px; /* Add space between icons */
 }
 
 
 #menu a:hover {
-    color: #9d9d9d; /* Hover state color */
+    color: var(--dark-white); /* Hover state color */
 }
 
 /*----MAIN----*/
 main{
     position: relative;
     overflow: hidden;
-    background-color: #181818;
+    background-color: var(--black);
 }
 
 .separator {
@@ -167,7 +174,7 @@ main{
     width: 100vw;
     height: 100vh;
     position: fixed; /* Stacking context */
-    background-color: #181818;
+    background-color: var(--black);
     z-index: 100;
 }
 
@@ -175,7 +182,7 @@ main{
     font-size: 5em; /* Increased font size */
     font-weight: bolder; /* Make the text bolder */
     text-align: center;
-    color: #181818; /* Text color changed to black */
+    color: var(--black); /* Text color changed to black */
     z-index: 101; /* Ensure text is above other content */
     position: absolute;
     top: 50%; /* Center vertically */
@@ -184,12 +191,13 @@ main{
     white-space: nowrap; /* Ensures text stays in one line */
 }
 
+
 /*----MAINSCREEN----*/
 #main-screen {
     position: relative;
     height: 100vh;
     width: 100vw;
-    background-color: #d9d9d9;
+    background-color: var(--white);
     z-index: 15; /* Image in front of the text */
     overflow: hidden;
 }
@@ -206,38 +214,81 @@ main{
 }
 
 #main-text h1 {
-    font-size: 5em; /* Increased font size */
+    font-size: 5vw; /* Responsive font size based on viewport width */
     font-weight: bolder; /* Make the text bolder */
     text-align: center;
-    color: #181818; /* Text color changed to black */
-
+    color: var(--black); /* Text color changed to black */
 }
 
 #main-image {
     position: absolute;
-    bottom: 0; /* Position the image at the bottom of the section */
+    bottom: -40px; /* Stick the image to the bottom */
     left: 50%; /* Center horizontally */
-    transform: translateX(-50%) translateY(2%) scale(2); /* Center horizontally and scale by a factor of 2 */
+    transform: translate(-50%, 0); /* Center horizontally */
+    padding-bottom: 0; /* Zero padding at bottom to stick the image at the very bottom */
     opacity: 0; /* Start with image hidden */
-    max-height: 75%; /* Set the maximum height to 80% of the container's height */
+    max-height: 75%; /* Set the maximum height to 75% of the container's height */
     z-index: 17;
 }
 
 #main-image img {
-    width: auto; /* Allow the width to adjust */
+    width: 100%; /* Make the image responsive */
     height: auto; /* Allow the height to adjust */
     max-width: 100%; /* Limit the width to the container's width */
     max-height: 100%; /* Limit the height to the container's height */
 }
 
+
+
 /*----ABOUT----*/
-#about{
-    position: relative;
-    height: 100vh;
+#about {
+    display: flex;
+    height: 120vh;
     width: 100vw;
-    background-color: #181818;
-    z-index: 13;
+    align-items: center;
+    justify-content: center;
+    background: var(--black); /* Adjust the background color as needed */
+    color: var(--white);
+    padding: 50px;
 }
+
+#about-card {
+    width: 350px; /* Adjust width as needed */
+    height: 450px; /* Adjust height as needed */
+    background: var(--white);
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 20px; /* Adjust border radius as needed */
+    box-shadow: -10px 10px 20px var(--dark-white); /* Optional: Adds shadow to the card */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Stick the image to the bottom */
+    margin-right: 100px; /* Adjust spacing between card and content */
+}
+
+#about-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px; /* Adjust to match the profile image border radius */
+}
+
+#about-content {
+    max-width: 500px; /* Adjust max-width as needed */
+}
+
+#about-content h2 {
+    font-size: 4em; /* Adjust font size as needed */
+    margin-bottom: 10px;
+    color: var(--white);
+}
+
+#about-content p {
+    font-size: 1.3em;
+    line-height: 1.6; /* Adjust line height for better readability */
+    text-align: justify; /* Justify the text within <p> elements */
+    color: var(--dark-white);
+}
+
 
 /*----PROJECTS----*/
 #projects{
@@ -254,7 +305,7 @@ main{
     width: 100vw;
     margin: 0%;
     font-family: Arial, sans-serif;
-    color: #d9d9d9;
+    color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -262,34 +313,34 @@ main{
     text-align: center;
     z-index: 5;
 }
-.contact-section {
+.contact-content {
     margin: 4%;
 }
 
-.contact-section h1 {
+.contact-content h1 {
     font-size: 4em;
     margin: 0.2em 0;
 }
 
-.contact-section h2 {
+.contact-content h2 {
     font-size: 2em;
     margin: 0.5em 0;
 }
 
-.contact-section button {
+.contact-content button {
     padding: 1em 2em;
     margin: 1em 0;
     font-size: 1em;
     cursor: pointer;
     border: none;
-    background-color: #d9d9d9;
-    color: #181818;
+    background-color: var(--white);
+    color: var(--black);
     border-radius: 50px;
     outline: none;
 }
 
-.contact-section button:hover {
-    background-color: #9d9d9d; /* Social media icons hover color */
+.contact-content button:hover {
+    background-color: var(--dark-white); /* Social media icons hover color */
 }
 
 .social-icons {
@@ -303,7 +354,7 @@ main{
 }
 
 .social-icons a {
-    color: #d9d9d9;
+    color: var(--white);
     justify-content: center;
     padding: 0 10px;
     font-size: 1.5em; /* Social icon size */
@@ -314,7 +365,7 @@ main{
 /* Hide the menu by default */
 
 .social-icons a:hover {
-    color: #9d9d9d; /* Social media icons hover color */
+    color: var(--dark-white); /* Social media icons hover color */
 }
 
 /*----FOOTER----*/
@@ -324,7 +375,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    color: #d9d9d9;
+    color: var(--white);
     font-size: 12px;
     text-align: center;
     padding: 10px 0;
@@ -332,15 +383,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    #main-text h1 {
-        /* font-size: 6em; */ /* Smaller font size for mobile devices */
-        white-space: normal; /* Allows text wrapping */
-        line-height: 1; /* Adjust line height to manage spacing between lines */
-        font-size: 10vw; /* Adjust font size for smaller screens */
-        margin: 5000em;
-        text-align: center;
-
-    }
 
     #splashscreen-text h1 {
         /* font-size: 6em; */ /* Smaller font size for mobile devices */
@@ -351,10 +393,12 @@ footer {
         white-space: nowrap; /* Ensures text stays in one line */
     }
 
-    #main-image {
-        max-height: 40vh; /* Adjust image size for smaller screens */
-        bottom: 0vh;
-
+    #main-text h1 {
+        /* font-size: 6em; */ /* Smaller font size for mobile devices */
+        white-space: normal; /* Allows text wrapping */
+        font-size: 8vw; /* Adjust font size for smaller screens */
+        margin: 5000em;
+        text-align: center;
     }
 
     #menuToggle {
@@ -365,11 +409,11 @@ footer {
         font-size: 5.5em; /* Adjust link size for mobile */
     }
 
-    .contact-section h1 {
+    .contact-content h1 {
         font-size: 2em;
     }
 
-    .contact-section h1 {
+    .contact-content h1 {
         font-size: 2em;
     }
 
