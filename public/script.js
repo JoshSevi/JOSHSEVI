@@ -58,6 +58,8 @@ const checkbox = menuToggle.querySelector('input[type="checkbox"]');
 const spans = menuToggle.querySelectorAll('span');
 const mainScreenSection = document.getElementById('main-screen');
 const aboutSection = document.getElementById('about');
+const projectSection = document.getElementById('projects');
+const contactSection = document.getElementById('contact');
 const menu = document.getElementById('menu');
 const links = document.querySelectorAll('#menu-nav a, #menu-social a');
 
@@ -94,7 +96,7 @@ ScrollTrigger.create({
 });
 
 ScrollTrigger.create({
-    trigger: aboutSection,
+    trigger: aboutSection, projectSection, contactSection,
     start: "top top",
     end: "bottom top",
     onEnter: () => {
@@ -104,6 +106,7 @@ ScrollTrigger.create({
             link.style.color = "var(--black)";
         });
     },
+
     onLeaveBack: () => {
         setSpanColorsForMainScreen(checkbox.checked);
         menu.style.backgroundColor = "var(--black)";
@@ -119,6 +122,12 @@ checkbox.addEventListener('change', () => {
         // If the main-screen section is fully or partially visible
         setSpanColorsForMainScreen(checkbox.checked);
     } else if (aboutSection.getBoundingClientRect().top <= window.innerHeight && aboutSection.getBoundingClientRect().bottom >= 0) {
+        // If the about section is fully or partially visible
+        setSpanColorsForAboutSection(checkbox.checked);
+    }else if (projectSection.getBoundingClientRect().top <= window.innerHeight && projectSection.getBoundingClientRect().bottom >= 0) {
+        // If the about section is fully or partially visible
+        setSpanColorsForAboutSection(checkbox.checked);
+    }else if (contactSection.getBoundingClientRect().top <= window.innerHeight && contactSection.getBoundingClientRect().bottom >= 0) {
         // If the about section is fully or partially visible
         setSpanColorsForAboutSection(checkbox.checked);
     }
