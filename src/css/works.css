@@ -1,0 +1,466 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cards: 3;
+    --cardWidth: 50vw;
+    --cardHeight: 50vh;
+    --cardTopPadding: 2.5em;
+    --cardMargin: 4vw;
+    --white: #d9d9d9;
+    --dark-white: #9d9d9d;
+    --grey: #181818;
+    --black: #111111;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Helvetica', sans-serif;
+    position: relative;
+    flex-direction: column;
+}
+
+/*----NAV MENU----*/
+#menuToggle {
+    position: fixed;
+    top: 40px; /* Adjust top position as needed */
+    right: 50px; /* Position to the upper right */
+    -webkit-user-select: none;
+    user-select: none;
+    visibility: hidden; /* Initially hide the menu toggle */
+    z-index: 1000;
+    cursor: pointer;
+}
+
+
+
+/* Rest of your CSS styles remain unchanged */
+
+
+#menuToggle input {
+
+    top: -10px;
+    left: -19%;
+    display: block;
+    width: 40px;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 300;
+}
+
+#menuToggle span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    margin-bottom: 2px;
+    position: relative;
+    background: var(--white);
+    border-radius: 4px;
+    transform-origin: 0px 0px;
+    box-shadow:none;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+    opacity 0.55s ease,
+    box-shadow 0.5s ease; /* Add box-shadow transition */
+    z-index: 200;
+}
+
+#menuToggle span:first-child
+{
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+    /* transform-origin: 30% 250%; */
+
+}
+
+#menuToggle span:nth-last-child(3)
+{
+    opacity: 0;
+}
+
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(0px, -11px);
+    background: var(--black) ; /* Ensure this style has priority when input is checked */
+    box-shadow: 0px 2px 8px var(--black);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, 6px);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ #menu {
+    display: flex; /* Show the menu when toggle is activated */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--white); /* Semi-transparent background for overlay */
+    z-index: 70; /* Make sure it's above other content */
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black); /* Overlay background */
+    display: none; /* Initially hide the menu */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 70; /* Above the content */
+    transition: all 0.5s ease;
+}
+
+/* Menu Navigation */
+#menu-nav {
+    display: flex;
+    flex-direction: column; /* Display links vertically */
+    align-items: center; /* Center links horizontally */
+}
+
+#menu-nav a {
+    text-decoration: none;
+    color: var(--black); /* Set text color */
+    font-size: 8.5em; /* Set font size */
+    font-weight: bold; /* Set text to bold */
+    margin-bottom: 10px; /* Add space between links */
+}
+
+/* Menu Social */
+#menu-social {
+    display: flex;
+    justify-content: center; /* Center icons horizontally */
+    margin-top: 20px; /* Add space from menu navigation */
+}
+
+#menu-social a {
+    text-decoration: none;
+    color: var(--black); /* Set icon color */
+    font-size: 2.5em; /* Set icon size */
+    margin: 0 10px; /* Add space between icons */
+}
+
+
+#menu a:hover {
+    color: var(--dark-white); /* Hover state color */
+}
+#menuToggle, header {
+    position: fixed;
+
+    z-index: 1000; /* Ensure it stays on top of other content */
+
+}
+
+/*----MAIN----*/
+main{
+    position: relative;
+    /*overflow: hidden;*/
+    background-color: var(--black);
+}
+
+.separator {
+    height: 0; /* Adjust separator height */
+    clear: both; /* Ensures sections don't overlap the separator */
+}
+
+/*----SPLASH SCREEN----*/
+#splashscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed; /* Stacking context */
+    background-color: var(--black);
+    z-index: 100;
+}
+
+#splashscreen-text h1, #contact-title h1{
+    font-size: 5vw; /* Increased font size */
+    font-weight: bolder; /* Make the text bolder */
+    text-align: center;
+    color: var(--white); /* Text color changed to black */
+    z-index: 101; /* Ensure text is above other content */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Centering adjustment */
+    white-space: nowrap; /* Ensures text stays in one line *!*/
+}
+
+
+/*------PROJECT-----*/
+
+.project-showcase {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#project {
+
+    text-align: center; /* Center the title and button */
+    color: white; /* Match text color to the image provided */
+    padding: 5vh 0; /* Provide some padding around the section */
+    list-style: none;
+    display: grid;
+
+}
+
+#project-title {
+    position: sticky;
+    padding-top: 2rem; /* Add some space above the title */
+    top: 0;
+    margin: 750px auto;
+
+    justify-items: center;
+}
+
+#project-title h1 {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 1em 1em; /* Padding around the title for spacing */
+    font-size: 3.5em;
+    color: white; /* Text color */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Adjusted text-shadow property */
+    position: sticky; /* Ensure the sticky positioning works */
+    top: 0; /* Position at the top of the container */
+    z-index: 2; /* Ensure the title is above other content */
+}
+
+
+#cards {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--cards), var(--cardHeight));
+    gap: var(--cardMargin);
+    padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+    margin-bottom: var(--cardMargin);
+}
+#project-title{
+    --index: 1;
+}
+
+#card1 {
+    --index: 2;
+}
+#card2 {
+    --index: 3;
+}
+#card3 {
+    --index: 4;
+}
+#project-button{
+    --index: 5;
+}
+
+.card {
+    position: sticky;
+    top: 13vh;
+    padding-top: calc(var(--index) * var(--cardTopPadding));
+    margin: 0 auto;
+}
+
+.card-body {
+    box-sizing: border-box;
+    padding: 5%;
+    border-radius: 50px;
+    box-shadow: 0 -8px 10px 2px rgba(68, 68, 68, 0.4);
+    width: var(--cardWidth);
+    height: var(--cardHeight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    background-color: #d9d9d9;
+    position: relative;
+}
+
+
+.project-button button {
+    background-color: #d9d9d9; /* Dark button background */
+    color: #181818; /* Text color for the button */
+    border: none; /* Remove default button border */
+    padding: 1em 2em; /* Add padding inside the button */
+    font-size: 1em; /* Set the font size for the button */
+    border-radius: 50px; /* Rounded corners for the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    top: 5vh;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Adjusted text-shadow property */
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+
+.project-button button:hover {
+    background-color: #555; /* Lighten button background on hover */
+}
+
+
+/*----CONTACT----*/
+#contact{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    margin: 0%;
+    font-family: Arial, sans-serif;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+.contact-content {
+    margin: 4%;
+}
+
+.contact-content h1 {
+    font-size: 4em;
+    margin: 0.2em 0;
+}
+
+.contact-content h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+}
+
+.contact-content button {
+    padding: 1em 2em;
+    margin: 1em 0;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 50px;
+    outline: none;
+}
+
+.contact-content button:hover {
+    background-color: var(--dark-white); /* Social media icons hover color */
+}
+
+.social-icons {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px; /* Adjust social icon size for mobile */
+    gap: 20px;
+    white-space: nowrap; /* Ensures text stays in one line */
+}
+
+.social-icons a {
+    color: var(--white);
+    justify-content: center;
+    padding: 0 10px;
+    font-size: 1.5em; /* Social icon size */
+}
+
+
+
+/* Hide the menu by default */
+
+.social-icons a:hover {
+    color: var(--dark-white); /* Social media icons hover color */
+}
+
+/*----FOOTER----*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: var(--white);
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 6;
+}
+
+@media (max-width: 768px) {
+
+    #splashscreen-text h1 {
+        /* font-size: 6em; */ /* Smaller font size for mobile devices */
+        white-space: normal; /* Allows text wrapping */
+        line-height: 1; /* Adjust line height to manage spacing between lines */
+        font-size: 10vw; /* Adjust font size for smaller screens */
+        text-align: center;
+        white-space: nowrap; /* Ensures text stays in one line */
+    }
+
+    #main-text h1 {
+        /* font-size: 6em; */ /* Smaller font size for mobile devices */
+        white-space: normal; /* Allows text wrapping */
+        font-size: 8vw; /* Adjust font size for smaller screens */
+        margin: 5000em;
+        text-align: center;
+    }
+
+    #menuToggle {
+        visibility: visible;
+    }
+
+    #menu a {
+        font-size: 5.5em; /* Adjust link size for mobile */
+    }
+
+    .contact-content h1 {
+        font-size: 2em;
+    }
+
+    .contact-content h1 {
+        font-size: 2em;
+    }
+
+    .social-icons a {
+        font-size: 1.5em; /* Adjust social icon size for mobile */
+        white-space: nowrap; /* Ensures text stays in one line */
+    }
+
+    /*-----PROJECT-----*/
+    #cards {
+
+        grid-template-rows: repeat(var(--cards), var(--cardHeight));
+        gap: var(--cardMargin);
+        padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+        margin-bottom: var(--cardMargin);
+    }
+
+    .card-body {
+        flex-direction: column; /* Stack content vertically in smaller spaces */
+        padding: 10%; /* Increase padding for better spacing */
+        border-radius: 20px; /* Adjust border radius for smaller screens */
+    }
+
+    #project .title h1 {
+        font-size: 1em; /* Adjust headline font size for readability */
+    }
+}
