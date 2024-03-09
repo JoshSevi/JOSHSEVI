@@ -5,6 +5,11 @@
 }
 
 :root {
+    --cards: 3;
+    --cardWidth: 50vw;
+    --cardHeight: 50vh;
+    --cardTopPadding: 2.5em;
+    --cardMargin: 4vw;
     --white: #d9d9d9;
     --dark-white: #9d9d9d;
     --grey: #181818;
@@ -39,7 +44,7 @@ html, body {
     position: absolute;
     cursor: pointer;
     opacity: 0; /* hide this */
-    z-index: 81;
+    z-index: 300;
 }
 
 #menuToggle span {
@@ -56,7 +61,7 @@ html, body {
     background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     opacity 0.55s ease,
     box-shadow 0.5s ease; /* Add box-shadow transition */
-    z-index: 80;
+    z-index: 200;
 }
 
 #menuToggle span:first-child
@@ -153,11 +158,17 @@ html, body {
 #menu a:hover {
     color: var(--dark-white); /* Hover state color */
 }
+#menuToggle, header {
+    position: fixed;
+
+    z-index: 1000; /* Ensure it stays on top of other content */
+
+}
 
 /*----MAIN----*/
 main{
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
     background-color: var(--black);
 }
 
@@ -243,7 +254,7 @@ main{
 /*----ABOUT----*/
 #about {
     display: flex;
-    height: 120vh;
+    height: 100vh;
     width: 100vw;
     align-items: center;
     justify-content: center;
@@ -290,13 +301,112 @@ main{
 }
 
 
-/*----PROJECTS----*/
-#projects{
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    z-index: 12;
+/*------PROJECT-----*/
+
+.project-showcase {
+    width: 90%;
+    margin: 0 auto;
 }
+
+#project {
+
+    text-align: center; /* Center the title and button */
+    color: white; /* Match text color to the image provided */
+    padding: 5vh 0; /* Provide some padding around the section */
+    list-style: none;
+    display: grid;
+
+}
+
+#project-title {
+    position: sticky;
+    padding-top: 2rem; /* Add some space above the title */
+    top: 0;
+    margin: 750px auto;
+
+    justify-items: center;
+}
+
+#project-title h1 {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 1em 1em; /* Padding around the title for spacing */
+    font-size: 3.5em;
+    color: white; /* Text color */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Adjusted text-shadow property */
+    position: sticky; /* Ensure the sticky positioning works */
+    top: 0; /* Position at the top of the container */
+    z-index: 2; /* Ensure the title is above other content */
+}
+
+
+#cards {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(var(--cards), var(--cardHeight));
+    gap: var(--cardMargin);
+    padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+    margin-bottom: var(--cardMargin);
+}
+#project-title{
+    --index: 1;
+}
+
+#card1 {
+    --index: 2;
+}
+#card2 {
+    --index: 3;
+}
+#card3 {
+    --index: 4;
+}
+#project-button{
+    --index: 5;
+}
+
+.card {
+    position: sticky;
+    top: 13vh;
+    padding-top: calc(var(--index) * var(--cardTopPadding));
+    margin: 0 auto;
+}
+
+.card-body {
+    box-sizing: border-box;
+    padding: 5%;
+    border-radius: 50px;
+    box-shadow: 0 -8px 10px 2px rgba(68, 68, 68, 0.4);
+    width: var(--cardWidth);
+    height: var(--cardHeight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    background-color: #d9d9d9;
+    position: relative;
+}
+
+
+.project-button button {
+    background-color: #d9d9d9; /* Dark button background */
+    color: #181818; /* Text color for the button */
+    border: none; /* Remove default button border */
+    padding: 1em 2em; /* Add padding inside the button */
+    font-size: 1em; /* Set the font size for the button */
+    border-radius: 50px; /* Rounded corners for the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    top: 5vh;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Adjusted text-shadow property */
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+
+.project-button button:hover {
+    background-color: #555; /* Lighten button background on hover */
+}
+
 
 /*----CONTACT----*/
 #contact{
@@ -421,7 +531,24 @@ footer {
         font-size: 1.5em; /* Adjust social icon size for mobile */
         white-space: nowrap; /* Ensures text stays in one line */
     }
+    /*-----PROJECT-----*/
+
+    #cards {
+
+        grid-template-rows: repeat(var(--cards), var(--cardHeight));
+        gap: var(--cardMargin);
+        padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+        margin-bottom: var(--cardMargin);
+    }
+
+    .card-body {
+        flex-direction: column; /* Stack content vertically in smaller spaces */
+        padding: 10%; /* Increase padding for better spacing */
+        border-radius: 20px; /* Adjust border radius for smaller screens */
+    }
+
+    #project .title h1 {
+        font-size: 1em; /* Adjust headline font size for readability */
+    }
 
 }
-
-
