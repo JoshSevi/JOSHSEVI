@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('splashscreen').style.display = 'none';
             document.getElementById('main-screen').classList.remove('hidden');
             animateMainScreen();
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
         }, 2000);
     });
 
