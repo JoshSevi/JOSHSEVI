@@ -13,75 +13,74 @@ document.addEventListener('DOMContentLoaded', function() {
     const menu = document.getElementById('menu');
     const links = document.querySelectorAll('#menu-nav a, #menu-social a');
 
-    function setSpanColorsForMainScreen(isChecked) {
+    function setMenuColors(isChecked, inMainScreen) {
+        const menuColor = inMainScreen ? "var(--white)" : "var(--black)";
+        const linkColor = inMainScreen ? "var(--black)" : "var(--white)";
+        const spanColor = inMainScreen ? (isChecked ? "var(--black)" : "var(--white)") : (isChecked ? "var(--white)" : "var(--black)");
+        const boxShadowColor = inMainScreen ? (isChecked ? "var(--black)" : "var(--white)") : (isChecked ? "var(--white)" : "var(--black)");
+
         spans.forEach(span => {
-            span.style.backgroundColor = isChecked ? "var(--white)" : "var(--black)";
-            span.style.boxShadow = isChecked ? "0px 2px 8px var(--white)" : "0px 2px 8px var(--black)";
+            span.style.backgroundColor = spanColor;
+            span.style.boxShadow = `0px 2px 8px ${boxShadowColor}`;
         });
-        menu.style.backgroundColor = isChecked ? "var(--black)" : "var(--white)";
+
+        menu.style.backgroundColor = menuColor;
+
         links.forEach(link => {
-            link.style.color = isChecked ? "var(--white)" : "var(--black)";
+            link.style.color = linkColor;
         });
     }
 
-    function setSpanColorsForOtherSection(isChecked) {
-        spans.forEach(span => {
-            span.style.backgroundColor = isChecked ? "var(--black)" : "var(--white)";
-            gsap.to(span, { boxShadow: isChecked ? "0px 2px 8px var(--black)" : "0px 2px 8px var(--white)", delay: 0.5 });
-        });
-        menu.style.backgroundColor = isChecked ? "var(--white)" : "var(--black)";
-        links.forEach(link => {
-            link.style.color = isChecked ? "var(--black)" : "var(--white)";
-        });
-    }
+    function handleMenuColors() {
+        const mainScreenTop = sections['main-screen'].getBoundingClientRect().top;
+        const aboutTop = sections['about'].getBoundingClientRect().top;
+        const projectTop = sections['project'].getBoundingClientRect().top;
+        const contactTop = sections['contact'].getBoundingClientRect().top;
 
-    function handleMenuColors(sectionId, isChecked) {
-        if (sectionId === 'main-screen') {
-            setSpanColorsForMainScreen(isChecked);
-        } else {
-            setSpanColorsForOtherSection(isChecked);
+        if (mainScreenTop <= 0 && aboutTop > 0) {
+            setMenuColors(checkbox.checked, false);
+        } else if (aboutTop <= 0 && projectTop > 0) {
+            setMenuColors(checkbox.checked, true);
+        } else if (projectTop <= 0 && contactTop > 0) {
+            setMenuColors(checkbox.checked, true);
+        } else if (contactTop <= 0) {
+            setMenuColors(checkbox.checked, true);
         }
     }
 
-    Object.keys(sections).forEach(sectionId => {
+    function handleCheckboxChange() {
+        handleMenuColors();
+    }
+
+    function handleScroll() {
+        handleMenuColors();
+    }
+
+    Object.values(sections).forEach(section => {
         ScrollTrigger.create({
-            trigger: sections[sectionId],
+            trigger: section,
             start: "top top",
             end: "bottom top",
-            onEnter: () => {
-                handleMenuColors(sectionId, checkbox.checked);
-            },
-            onLeaveBack: () => {
-                if (sectionId === 'about') {
-                    checkbox.checked = false; // Uncheck the checkbox when leaving the project section
-                    handleMenuColors('main-screen', checkbox.checked);
-                }
-            }
+            onEnter: handleScroll,
+            onLeaveBack: handleScroll
         });
     });
 
-    checkbox.addEventListener('change', () => {
-        const visibleSection = Object.keys(sections).find(sectionId => {
-            const section = sections[sectionId];
-            return section.getBoundingClientRect().top <= window.innerHeight && section.getBoundingClientRect().bottom >= 0;
-        });
-
-        handleMenuColors(visibleSection || 'main-screen', checkbox.checked);
-    });
+    menuToggle.addEventListener('change', handleCheckboxChange);
 
     window.addEventListener('load', () => {
         setTimeout(() => {
             document.getElementById('splashscreen').style.display = 'none';
             document.getElementById('main-screen').classList.remove('hidden');
             animateMainScreen();
-            // Scroll to the top of the page
+            handleMenuColors();
             window.scrollTo(0, 0);
         }, 2000);
     });
 
     function animateMainScreen() {
-        gsap.to('#main-image', { duration: 1.5, opacity: 1, scale: 1, delay: 1 });
-        gsap.to('#main-text h1', { duration: 2, y: -180, delay: 1.1, scale: 1 });
+        gsap.to('#main-image', { duration: 1.5, opacity: 100, scale: 0.9, delay: 1 });
+        gsap.to('#main-text h1', { duration: 2, y: -180, delay: 1.1, scale: 2 });
         setTimeout(() => {
             document.getElementById('menuToggle').style.visibility = 'visible';
         }, 3000);

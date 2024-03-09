@@ -15,6 +15,9 @@
     --grey: #181818;
     --black: #111111;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 html, body {
     height: 100%;
@@ -27,13 +30,19 @@ html, body {
 
 /*----NAV MENU----*/
 #menuToggle {
-    position: absolute;
+    position: fixed;
     top: 40px; /* Adjust top position as needed */
     right: 50px; /* Position to the upper right */
     -webkit-user-select: none;
     user-select: none;
     visibility: hidden; /* Initially hide the menu toggle */
+    z-index: 1000;
+    cursor: pointer;
 }
+
+
+/* Rest of your CSS styles remain unchanged */
+
 
 #menuToggle input {
     top: -10px;
@@ -189,8 +198,8 @@ main{
     z-index: 100;
 }
 
-#splashscreen-text h1{
-    font-size: 5em; /* Increased font size */
+#splashscreen-text h1, #main-text h1{
+    font-size: 5vw; /* Increased font size */
     font-weight: bolder; /* Make the text bolder */
     text-align: center;
     color: var(--black); /* Text color changed to black */
@@ -199,7 +208,7 @@ main{
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Centering adjustment */
-    white-space: nowrap; /* Ensures text stays in one line */
+    white-space: nowrap; /* Ensures text stays in one line *!*/
 }
 
 
@@ -224,13 +233,6 @@ main{
     transform: translate(-50%, -50%); /* Centering adjustment */
 }
 
-#main-text h1 {
-    font-size: 5vw; /* Responsive font size based on viewport width */
-    font-weight: bolder; /* Make the text bolder */
-    text-align: center;
-    color: var(--black); /* Text color changed to black */
-}
-
 #main-image {
     position: absolute;
     bottom: -40px; /* Stick the image to the bottom */
@@ -247,6 +249,7 @@ main{
     height: auto; /* Allow the height to adjust */
     max-width: 100%; /* Limit the width to the container's width */
     max-height: 100%; /* Limit the height to the container's height */
+    scale: 1.2;
 }
 
 
