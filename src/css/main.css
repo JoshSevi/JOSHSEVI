@@ -257,11 +257,11 @@ main{
 /*----ABOUT----*/
 #about {
     display: flex;
-    height: 100vh;
+    height: 120vh;
     width: 100vw;
     align-items: center;
     justify-content: center;
-    background: var(--black); /* Adjust the background color as needed */
+    background: var(--grey); /* Adjust the background color as needed */
     color: var(--white);
     padding: 50px;
 }
@@ -318,6 +318,8 @@ main{
     padding: 5vh 0; /* Provide some padding around the section */
     list-style: none;
     display: grid;
+    height: auto;
+    width: auto;
 
 }
 
@@ -325,9 +327,9 @@ main{
     position: sticky;
     padding-top: 2rem; /* Add some space above the title */
     top: 0;
-    margin: 750px auto;
-
+    margin: 40px auto;
     justify-items: center;
+    padding-bottom: 70vh;
 }
 
 #project-title h1 {
@@ -392,6 +394,9 @@ main{
     position: relative;
 }
 
+#project-button{
+    padding: 40px;
+}
 
 .project-button button {
     background-color: #d9d9d9; /* Dark button background */

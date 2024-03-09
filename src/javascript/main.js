@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const cards = document.querySelectorAll('.card');
     cards.forEach((card, index) => {
-        const offsetTop = 20 + index * 50;
+        const offsetTop = 20 + index * 70;
         card.style.paddingTop = `${offsetTop}px`;
 
         if (index === cards.length - 1) {
