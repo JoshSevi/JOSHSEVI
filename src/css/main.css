@@ -383,7 +383,7 @@ main{
     box-sizing: border-box;
     padding: 5%;
     border-radius: 50px;
-    box-shadow: 0 -8px 10px 2px var(--dark-white);
+    box-shadow: 0 -8px 20px 2px var(--dark-white);
     width: var(--cardWidth);
     height: var(--cardHeight);
     display: flex;
@@ -397,6 +397,7 @@ main{
 
 #project-button{
     padding: 40px;
+z-index: 10;
 }
 
 .project-button button {
@@ -420,7 +421,7 @@ main{
 /*----CONTACT----*/
 #contact{
     position: relative;
-    height: 100vh;
+    height: 120vh;
     width: 100vw;
     margin: 0%;
     font-family: Arial, sans-serif;
