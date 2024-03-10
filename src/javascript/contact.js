@@ -1,3 +1,19 @@
+// Your own Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyCD6DhbCD6rT5ABq6C0hzyIT9wPW-H84rY",
+    authDomain: "josh-sevi.firebaseapp.com",
+    databaseURL: "https://josh-sevi-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "josh-sevi",
+    storageBucket: "josh-sevi.appspot.com",
+    messagingSenderId: "565656552983",
+    appId: "1:565656552983:web:25d4a6e5b75a9828d6fe52",
+    measurementId: "G-8NPSWC4480"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
 document.addEventListener('DOMContentLoaded', function() {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -72,19 +88,88 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             document.getElementById('splashscreen').style.display = 'none';
             document.getElementById('menuToggle').style.visibility = 'visible';
-            //document.getElementById('main-screen').classList.remove('hidden');
-            // animateMainScreen();
             handleMenuColors();
             window.scrollTo(0, 0);
         }, 500);
     });
 
-    // function animateMainScreen() {
-    //     //gsap.to('#main-image', { duration: 1.5, opacity: 100, scale: 0.9, delay: 1 });
-    //     gsap.to('#contact-title h1', { duration: 0.5, y: -560, delay: 0, scale: 0.4 });
-    //     setTimeout(() => {
-    //         document.getElementById('menuToggle').style.visibility = 'visible';
-    //     }, 3000);
-    // }
+
+// Get the modal
+    var modal = document.getElementById('contactFormModal');
+
+// Get the button that opens the modal
+    var btn = document.getElementById('contactMeButton');
+
+// Get the <span> element that closes the modal
+    var span = document.getElementsByClassName('close')[0];
+
+// When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+// When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+// When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+
+// Implement form submission logic here
+    document.getElementById('contactForm').onsubmit = function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Check if the form fields are not empty
+        if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+            alert('Please fill in all the fields.');
+            return; // Stop form submission
+        }
+
+        // Disable form submission button while processing
+        document.querySelector('#contactForm button[type="submit"]').disabled = true;
+
+        // Add a new document with a generated id.
+        db.collection("contacts").add({
+            name: name,
+            email: email,
+            message: message
+        })
+            .then(function(docRef) {
+                console.log("Document written with ID: ", docRef.id);
+                // You can add your success message or redirect to another page here
+                alert('Your message has been sent.');
+                // Clear the form fields
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+                // Close the modal after successful submission
+                closeModal();
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+                // Handle errors here
+                alert('An error occurred while sending your message. Please try again later.');
+            })
+            .finally(function() {
+                // Enable form submission button after processing
+                document.querySelector('#contactForm button[type="submit"]').disabled = false;
+            });
+    }
+
+// Function to close the modal
+    function closeModal() {
+        var modal = document.getElementById('contactFormModal');
+        modal.style.display = "none";
+    }
+
+
 });
 

@@ -27,6 +27,7 @@ html, body {
     font-family: 'Helvetica', sans-serif;
     position: relative;
     flex-direction: column;
+    background: var(--black);
 }
 
 /*----NAV MENU----*/
@@ -37,7 +38,7 @@ html, body {
     -webkit-user-select: none;
     user-select: none;
     visibility: hidden; /* Initially hide the menu toggle */
-    z-index: 1000;
+    /*z-index: 1000;*/
     cursor: pointer;
 }
 
@@ -185,8 +186,7 @@ html, body {
 
 #menuToggle, header {
     position: fixed;
-
-    z-index: 1000; /* Ensure it stays on top of other content */
+    z-index: 90;
 
 }
 
@@ -242,7 +242,7 @@ main{
     justify-content: center;
     align-items: center;
     text-align: center;
-    z-index: 5;
+    z-index: 80;
 }
 .contact-content {
     margin: 4%;
@@ -274,6 +274,21 @@ main{
     background-color: var(--dark-white); /* Social media icons hover color */
 }
 
+/* Contact Form Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 200; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    backdrop-filter: blur(8px); /* Add blur effect to the background */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    /*background-color: rgba(31, 33, 37, 1.9); !* Black w/ opacity *!*/
+}
+
 .social-icons {
     position: absolute;
     bottom: 60px;
@@ -291,13 +306,116 @@ main{
     font-size: 1.5em; /* Social icon size */
 }
 
-
-
 /* Hide the menu by default */
 
 .social-icons a:hover {
     color: var(--dark-white); /* Social media icons hover color */
 }
+
+/* Modal Content/Box */
+
+#contactFormModal{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    box-shadow: 0 0 20px 5px var(--dark-white); /* Add glow effect */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 30px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 400px; /* Adjust the maximum width as needed */
+}
+
+/* The Close Button */
+.close {
+    color: var(--black);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--dark-white);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*label {*/
+/*    margin-bottom: 5px;*/
+/*    display: block;*/
+/*    color: var(--black); !* Red font color *!*/
+/*    align-self: flex-start; !* Align label to the left *!*/
+
+/*    background-color: #f0f0f0; !* Background color for label *!*/
+/*    padding: 5px; !* Add padding for label *!*/
+/*    border-radius: 5px; !* Add border-radius for label *!*/
+
+/*}*/
+
+/* Title */
+#contactFormModal h2 {
+    color: var(--black); /* Magenta font color */
+    padding-bottom: 20px;
+    /*text-shadow: 0 0 5px 10px var(--black); !* Add glow effect *!*/
+}
+
+/* Common styles for text fields, email fields, and submit buttons */
+input[type="text"],
+input[type="email"],
+button[type="submit"] {
+    width: 100%;
+    padding: 20px 20px;
+    margin: 0;
+    color: var(--white);
+    border: 1px solid var(--black);
+    background-color: var(--black);
+    box-sizing: border-box;
+    border-radius: 20px;
+    /*box-shadow: -2px 2px 3px 3px var(--dark-white); !* Add glow effect *!*/
+    max-width: 100%;
+}
+
+/* Specific styles for textarea */
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 5px 0;
+    color: white;
+    border: 1px solid var(--black);
+    background-color: var(--black);
+    box-sizing: border-box;
+    border-radius: 30px;
+    max-width: 100%;
+    min-height: 200px; /* Increase the height of the textarea */
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: var(--black);
+    color: rgba(250, 244, 212, 0.73);
+    padding: 14px 20px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--black);
+    /*opacity: 0.8;*/
+    box-shadow: 0 0 8px 4px rgba(31, 33, 37, 0.69); /* Add glow effect */
+    color: var(--white); /* Change text color to white */
+}
+
 
 /*----FOOTER----*/
 
