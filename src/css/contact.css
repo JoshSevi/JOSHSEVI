@@ -30,6 +30,7 @@ html, body {
     background: var(--black);
 }
 
+
 /*----NAV MENU----*/
 #menuToggle {
     position: fixed;
@@ -37,10 +38,12 @@ html, body {
     right: 50px; /* Position to the upper right */
     -webkit-user-select: none;
     user-select: none;
-    visibility: hidden; /* Initially hide the menu toggle */
-    /*z-index: 1000;*/
+    visibility: visible; /* Initially hide the menu toggle */
+    z-index: 1000;
     cursor: pointer;
 }
+
+
 
 /* Rest of your CSS styles remain unchanged */
 
@@ -68,6 +71,7 @@ html, body {
     border-radius: 4px;
     transform-origin: 0px 0px;
     box-shadow:none;
+    opacity: 0.6;
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     opacity 0.55s ease,
@@ -147,16 +151,15 @@ html, body {
     text-decoration: none;
     color: var(--black); /* Set text color */
     font-size: 8.5em; /* Set font size */
-    font-weight: bold; /* Set text to bold */
+    font-weight: bolder; /* Set text to bold */
     margin-bottom: 10px; /* Add space between links */
 }
 
 /* Menu Social */
 #menu-social {
-    position: absolute;
     display: flex;
     justify-content: center; /* Center icons horizontally */
-    margin-top: 80vh; /* Add space from menu navigation */
+    margin-top: 20px; /* Add space from menu navigation */
 }
 
 #menu-social a {
@@ -175,19 +178,26 @@ html, body {
 
 #menu-social i {
     color: var(--white); /* Set icon color to black */
-    font-size: 60%; /* Adjust icon size relative to circle */
+    font-size: 70%; /* Adjust icon size relative to circle */
 }
 
 #menu-nav a:hover {
     color: var(--dark-white); /* Change text color on hover */
 }
+
+#menu a:hover {
+    color: var(--dark-white); /* Change text color on hover */
+
+}
+
 #menu-social a:hover {
     background-color: var(--dark-white); /* Change background color on hover */
 }
 
 #menuToggle, header {
     position: fixed;
-    z-index: 90;
+
+    z-index: 1000; /* Ensure it stays on top of other content */
 
 }
 
@@ -247,6 +257,44 @@ main{
     overflow: hidden;
 }
 
+
+
+/* Text Loop Animation Styles */
+#Text-Loop .container {
+
+    white-space: nowrap;
+    overflow: hidden; /* Ensures content outside the container isn't visible */
+    position: absolute;
+
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure it's below .contact-content */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    /* Rest of your styles */
+}
+
+
+#Text-Loop .list {
+    display: flex;
+    align-items: start;
+    animation: loop 200s infinite linear;
+}
+
+#Text-Loop .item-txt {
+    font-family: 'Kumbh Sans', sans-serif; /* Adjust the font family as needed */
+    font-size: 20vw; /* Adjust based on your layout's responsiveness */
+    line-height: 2.8;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dark-white);
+    max-height: 50%;
+}
+
 #contact:before {
     content: '';
     position: fixed;
@@ -255,16 +303,16 @@ main{
     width: 100%;
     height: 100%;
     max-height: 58.8%;
-    background-color: rgba(250, 244, 212, 0.65);
+    background-color: rgb(192, 187, 160);
     /*background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);*/
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
     transform: scaleX(1.6);
-    z-index: -1; /* Ensure the gradient is behind the content */
+    z-index: 2; /* Ensure the gradient is behind the content */
     box-shadow: 0 0 20px 5px var(--grey); /* Add glow effect */
 }
 
 .contact-content, .contact-social-icons, footer {
-    z-index: 1; /* Ensure content is above the gradient */
+    z-index: 2; /* Ensure content is above the gradient */
 }
 
 .contact-content {
@@ -274,6 +322,7 @@ main{
     justify-content: center;
     height: 100%;
     /* other styles */
+    z-index: 2;
 }
 .contact-content hr {
     border: black; /* Remove default border */
@@ -324,7 +373,7 @@ main{
     font-size: 1em;
     cursor: pointer;
     border: none;
-    background-color: var(--white);
+    background-color: #ded9bb;
     color: var(--black);
     border-radius: 50px;
     outline: none;
@@ -494,6 +543,19 @@ footer {
     z-index: 6;
 }
 
+/* When the screen width is 1024px or less */
+@media (max-width: 1024px) {
+    #Text-Loop .item-txt {
+        font-size: 28vh; /* Adjust font size for smaller screens */
+    }
+}
+
+
+@keyframes loop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
 @media (max-width: 768px) {
 
     #splashscreen-text h1 {
@@ -514,15 +576,16 @@ footer {
     }
 
     .contact-content h1 {
-        font-size: 2em;
+        font-size: 1em;
     }
 
-    .contact-content h1 {
-        font-size: 2em;
-    }
 
     .contact-social-icons a {
         font-size: 1.5em; /* Adjust social icon size for mobile */
         white-space: nowrap; /* Ensures text stays in one line */
     }
+    #Text-Loop .item-txt {
+        font-size: 28vh; /* Adjust font size for smaller screens */
+    }
+
 }

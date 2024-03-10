@@ -295,6 +295,53 @@ main{
     font-size: 1.3em;
 }
 
+/*----SKILLS----*/
+
+#skills {
+    text-align: center;
+    max-width: 40%;
+    margin: auto;
+}
+
+.section-header h2 {
+    font-size: 2em;
+    margin: 1em 0;
+    color: var(--white);
+}
+
+.software-list, .skills-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 30vh;
+}
+
+.hard-skills, .soft-skills{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 30vh;
+}
+
+.software-list span, .skills-list span {
+
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    border-radius: 15px;
+    border: 1px solid var(--dark-white); /* Solid black border, 1 pixel thick */
+    color: var(--dark-white);
+}
+
+
+.soft-skills h3, .hard-skills h3 {
+    font-size: 1em;
+    margin: 2em 0em;
+    color: var(--white);
+    position: relative;
+    text-align: center; /* This will center the text */
+    align-content: center;
+    width: 100%; /* Add this line to make the heading take full width */
+}
 
 
 /*----CONTACT----*/
@@ -438,6 +485,16 @@ footer {
         text-align: center; /* Ensures text is centered */
         font-size: smaller;
 
+    }
+
+    .software-list span, .skills-list span {
+        padding: 0.3em 0.5em;
+        margin: 0.3em;
+        font-size: 0.8em;
+    }
+
+    .section-header h2 {
+        font-size: 1.5em;
     }
 
 
