@@ -5,11 +5,11 @@
 }
 
 :root {
-    --cards: 3;
+    --cards: 5;
     --cardWidth: 50vw;
     --cardHeight: 50vh;
-    --cardTopPadding: 2.5em;
-    --cardMargin: 4vw;
+    --cardTopPadding: 5.5em;
+    --cardMargin: 70vw;
     --white: #FAF4D4;
     --dark-white: #585756;
     --grey: #181818;
@@ -247,7 +247,7 @@ main{
 
     text-align: center; /* Center the title and button */
     color: var(--white); /* Match text color to the image provided */
-    padding: 5vh 0; /* Provide some padding around the section */
+    padding: 0 0; /* Provide some padding around the section */
     list-style: none;
     display: grid;
     height: auto;
@@ -256,25 +256,21 @@ main{
 }
 
 #project-title {
-    position: sticky;
-    padding-top: 2rem; /* Add some space above the title */
-    top: 0;
-    margin: 40px auto;
-    justify-items: center;
-    padding-bottom: 70vh;
+    /* Remove unnecessary styles */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Adjust height to center vertically */
 }
 
 #project-title h1 {
-    display: inline-block;
-    margin: 0 auto;
+    margin: 0; /* Remove margin to avoid extra space */
     padding: 1em 1em; /* Padding around the title for spacing */
     font-size: 3.5em;
     color: var(--white); /* Text color */
     text-shadow: 0 0 20px var(--dark-white); /* Adjusted text-shadow property */
-    position: sticky; /* Ensure the sticky positioning works */
-    top: 0; /* Position at the top of the container */
-    z-index: 2; /* Ensure the title is above other content */
 }
+
 
 
 #cards {
@@ -286,6 +282,11 @@ main{
     gap: var(--cardMargin);
     padding-bottom: calc(var(--cards) * var(--cardTopPadding));
     margin-bottom: var(--cardMargin);
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjust based on design */
+
+
+
 }
 #project-title{
     --index: 1;
@@ -300,32 +301,86 @@ main{
 #card3 {
     --index: 4;
 }
-#project-button{
+#card4 {
     --index: 5;
+}
+#card5 {
+    --index: 6;
+}
+#project-button{
+    --index: 7;
 }
 
 .card {
-    position: sticky;
-    top: 13vh;
-    padding-top: calc(var(--index) * var(--cardTopPadding));
+    width: var(--cardWidth);
+    height: var(--cardHeight);
+    margin-bottom: var(--cardTopPadding); /* Separation between cards */
+    /* Other styles like border-radius, box-shadow */
+    border-radius: 20px; /* Adjust based on design */
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+
+    position: relative; /* Position relative to place the label */
+    /*background: transparent; !* Background color of card *!*/
+
+    /* Centering the card */
     margin: 0 auto;
 }
 
 .card-body {
-    box-sizing: border-box;
-    padding: 5%;
-    border-radius: 50px;
-    box-shadow: 0 -8px 20px 2px var(--dark-white);
-    width: var(--cardWidth);
-    height: var(--cardHeight);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    padding: 5%;
+    border-radius: 20px; /* Add border radius to match the card shape */
+    box-shadow: 0 8px 20px 2px var(--dark-white); /* Adjust box-shadow */
+    width: 90%; /* Adjusted width for responsiveness */
+    height: 90%; /* Adjusted height for responsiveness */
+
+    width: var(--cardWidth);
+    height: var(--cardHeight);
     transition: all 0.5s;
-    background-color: var(--white);
-    position: relative;
-    color: var(--dark-white);
+    background-color: #faf4d4;
+    overflow: hidden; /* Ensure the image doesn't overflow the card */
 }
+
+.card-body img {
+    width: 100%; /* Ensure the image covers the entire card */
+    height: 100%;
+    object-fit: cover; /* Cover the entire space with the image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Move the image behind other content */
+    border-radius: 20px; /* Add border radius to match the card shape */
+}
+
+
+.card-info {
+    position: absolute;
+    bottom: -100px; /* Position the label at the bottom of the card */
+    left: 0; /* Align the label to the left */
+    width: 100%; /* The label spans the full width of the card */
+    padding: 0; /* Padding inside the label */
+    /*background-color: rgba(0, 0, 0, 0.8); !* Semi-transparent background for the label *!*/
+    color: var(--white); /* Text color */
+    text-align: center; /* Center the text inside the label */
+    z-index: 100;
+}
+
+
+.card-info h2,
+.card-info p {
+    margin: 10px; /* Remove default margin */
+    color: var(--white); /* Text color */
+}
+
+
+
 
 #project-button{
     padding: 40px;
