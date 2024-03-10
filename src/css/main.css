@@ -26,6 +26,7 @@ html, body {
     font-family: 'Helvetica', sans-serif;
     position: relative;
     flex-direction: column;
+    background-color: var(--black);
 }
 
 /*----NAV MENU----*/
@@ -68,6 +69,7 @@ html, body {
     border-radius: 4px;
     transform-origin: 0px 0px;
     box-shadow:none;
+    opacity: 0.6;
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     opacity 0.55s ease,
@@ -221,7 +223,7 @@ main{
     z-index: 100;
 }
 
-#splashscreen-text h1, #main-text h1{
+#splashscreen-text h1{
     font-size: 5vw; /* Increased font size */
     font-weight: bolder; /* Make the text bolder */
     text-align: center;
@@ -249,11 +251,38 @@ main{
     display: none;
 }
 
-#main-text {
+#main-title {
     position: absolute;
+
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Centering adjustment */
+}
+
+#main-title h1{
+    font-size: 5vw; /* Increased font size */
+    font-weight: bolder; /* Make the text bolder */
+    text-align: center;
+    color: var(--black); /* Text color changed to black */
+    z-index: 101; /* Ensure text is above other content */
+    white-space: nowrap; /* Ensures text stays in one line *!*/
+
+}
+
+#main-introduction{
+    visibility: hidden; /* Initially hide the menu toggle */
+    opacity: 0.6;
+}
+
+#main-introduction p{
+    font-size: 1.8vw; /* Increased font size */
+    font-weight: lighter; /* Make the text bolder */
+    text-align: center;
+    color: var(--grey); /* Text color changed to black */
+    z-index: 101; /* Ensure text is above other content */
+    white-space: nowrap; /* Ensures text stays in one line *!*/
+    padding-top: 15vh;
+
 }
 
 #main-image {
@@ -323,7 +352,9 @@ main{
     font-size: 1.3em;
     line-height: 1.6; /* Adjust line height for better readability */
     text-align: justify; /* Justify the text within <p> elements */
-    color: var(--dark-white);
+    color: var(--white);
+    font-weight: lighter;
+    opacity: 0.6;
 }
 
 
@@ -536,12 +567,21 @@ footer {
         white-space: nowrap; /* Ensures text stays in one line */
     }
 
-    #main-text h1 {
+    #main-introduction p{
         /* font-size: 6em; */ /* Smaller font size for mobile devices */
         white-space: normal; /* Allows text wrapping */
-        font-size: 8vw; /* Adjust font size for smaller screens */
-        margin: 5000em;
+        font-size: 3vw; /* Adjust font size for smaller screens */
         text-align: center;
+        padding-top: 30vh;
+    }
+
+    #main-title h1 {
+        /* font-size: 6em; */ /* Smaller font size for mobile devices */
+        white-space: normal; /* Allows text wrapping */
+        font-size: 10vw; /* Adjust font size for smaller screens */
+        margin: 5000vh;
+        text-align: center;
+        padding-top: 20vh;
     }
 
     #menuToggle {

@@ -226,7 +226,7 @@ main{
     z-index: 100;
 }
 
-#splashscreen-text h1, #main-text h1{
+#splashscreen-text h1, #main-title h1{
     font-size: 5vw; /* Increased font size */
     font-weight: bolder; /* Make the text bolder */
     text-align: center;
@@ -254,7 +254,7 @@ main{
     display: none;
 }
 
-#main-text {
+#main-title {
     position: absolute;
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
@@ -541,7 +541,7 @@ footer {
         white-space: nowrap; /* Ensures text stays in one line */
     }
 
-    #main-text h1 {
+    #main-title h1 {
         /* font-size: 6em; */ /* Smaller font size for mobile devices */
         white-space: normal; /* Allows text wrapping */
         font-size: 8vw; /* Adjust font size for smaller screens */

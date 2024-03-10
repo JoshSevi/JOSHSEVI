@@ -326,7 +326,7 @@ footer {
         white-space: nowrap; /* Ensures text stays in one line */
     }
 
-    #main-text h1 {
+    #main-title h1 {
         /* font-size: 6em; */ /* Smaller font size for mobile devices */
         white-space: normal; /* Allows text wrapping */
         font-size: 8vw; /* Adjust font size for smaller screens */
