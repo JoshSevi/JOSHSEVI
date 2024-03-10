@@ -153,9 +153,10 @@ html, body {
 
 /* Menu Social */
 #menu-social {
+    position: absolute;
     display: flex;
     justify-content: center; /* Center icons horizontally */
-    margin-top: 20px; /* Add space from menu navigation */
+    margin-top: 80vh; /* Add space from menu navigation */
 }
 
 #menu-social a {
@@ -174,7 +175,7 @@ html, body {
 
 #menu-social i {
     color: var(--white); /* Set icon color to black */
-    font-size: 70%; /* Adjust icon size relative to circle */
+    font-size: 60%; /* Adjust icon size relative to circle */
 }
 
 #menu-nav a:hover {
@@ -230,11 +231,11 @@ main{
 
 
 /*----CONTACT----*/
-#contact{
+#contact {
     position: relative;
     height: 100vh;
     width: 100vw;
-    margin: 0%;
+    margin: 0;
     font-family: Arial, sans-serif;
     color: var(--white);
     display: flex;
@@ -243,22 +244,81 @@ main{
     align-items: center;
     text-align: center;
     z-index: 80;
+    overflow: hidden;
 }
+
+#contact:before {
+    content: '';
+    position: fixed;
+    bottom: 0; /* Positioned at the bottom */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 58.8%;
+    background-color: rgba(250, 244, 212, 0.65);
+    /*background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);*/
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    transform: scaleX(1.6);
+    z-index: -1; /* Ensure the gradient is behind the content */
+    box-shadow: 0 0 20px 5px var(--grey); /* Add glow effect */
+}
+
+.contact-content, .contact-social-icons, footer {
+    z-index: 1; /* Ensure content is above the gradient */
+}
+
 .contact-content {
-    margin: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /* other styles */
+}
+.contact-content hr {
+    border: black; /* Remove default border */
+    height: 10px; /* Set the height of the line */
+    background-color: black; /* Set the color of the line */
+    margin: 20px 0; /* Optional: set the margin around the line */
+    z-index: 1;
 }
 
-.contact-content h1 {
-    font-size: 4em;
-    margin: 0.2em 0;
+.contact-content h1{
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    top: 3vh;
+    position: relative;
+    color: var(--black);
+
 }
 
-.contact-content h2 {
-    font-size: 2em;
-    margin: 0.5em 0;
+.contact-content h2{
+    margin-top: 30vh;
+    margin-bottom: 1vh;
+    position: absolute;
+    padding-bottom: 10px;
+    color: var(--black);
 }
+
+.contact-content p{
+    margin-top: 33vh;
+    margin-bottom: 0;
+    position: absolute;
+    color: var(--black);
+}
+
+.contact-content h3{
+    margin-top: 55vh;
+    margin-bottom: 0;
+    position: absolute;
+    color: var(--black);
+
+}
+
 
 .contact-content button {
+    position: absolute;
+    top: 38vh;
     padding: 1em 2em;
     margin: 1em 0;
     font-size: 1em;
@@ -268,10 +328,13 @@ main{
     color: var(--black);
     border-radius: 50px;
     outline: none;
+    box-shadow: 0 5px 20px 5px var(--dark-white); /* Add glow effect */
 }
 
 .contact-content button:hover {
-    background-color: var(--dark-white); /* Social media icons hover color */
+    background-color: var(--grey); /* Social media icons hover color */
+    color: var(--white);
+    box-shadow: 0 0 20px 5px var(--black); /* Add glow effect */
 }
 
 /* Contact Form Modal */
@@ -289,18 +352,18 @@ main{
     /*background-color: rgba(31, 33, 37, 1.9); !* Black w/ opacity *!*/
 }
 
-.social-icons {
+.contact-social-icons {
     position: absolute;
-    bottom: 60px;
+    margin-top: 65vh;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 20px; /* Adjust social icon size for mobile */
+    font-size: 30px; /* Adjust social icon size for mobile */
     gap: 20px;
     white-space: nowrap; /* Ensures text stays in one line */
 }
 
-.social-icons a {
-    color: var(--white);
+.contact-social-icons a {
+    color: var( --black);
     justify-content: center;
     padding: 0 10px;
     font-size: 1.5em; /* Social icon size */
@@ -308,7 +371,7 @@ main{
 
 /* Hide the menu by default */
 
-.social-icons a:hover {
+.contact-social-icons a:hover {
     color: var(--dark-white); /* Social media icons hover color */
 }
 
@@ -321,7 +384,7 @@ main{
 }
 
 .modal-content {
-    background-color: var(--white);
+    background-color: rgba(250, 244, 212, 0.9);
     box-shadow: 0 0 20px 5px var(--dark-white); /* Add glow effect */
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
@@ -424,7 +487,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    color: var(--white);
+    color: var(--black);
     font-size: 12px;
     text-align: center;
     padding: 10px 0;
@@ -458,7 +521,7 @@ footer {
         font-size: 2em;
     }
 
-    .social-icons a {
+    .contact-social-icons a {
         font-size: 1.5em; /* Adjust social icon size for mobile */
         white-space: nowrap; /* Ensures text stays in one line */
     }
