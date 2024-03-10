@@ -41,8 +41,6 @@ html, body {
     cursor: pointer;
 }
 
-
-
 /* Rest of your CSS styles remain unchanged */
 
 
@@ -326,14 +324,6 @@ footer {
         white-space: nowrap; /* Ensures text stays in one line */
     }
 
-    #main-title h1 {
-        /* font-size: 6em; */ /* Smaller font size for mobile devices */
-        white-space: normal; /* Allows text wrapping */
-        font-size: 8vw; /* Adjust font size for smaller screens */
-        margin: 5000em;
-        text-align: center;
-    }
-
     #menuToggle {
         visibility: visible;
     }
@@ -353,24 +343,5 @@ footer {
     .social-icons a {
         font-size: 1.5em; /* Adjust social icon size for mobile */
         white-space: nowrap; /* Ensures text stays in one line */
-    }
-
-    /*-----PROJECT-----*/
-    #cards {
-
-        grid-template-rows: repeat(var(--cards), var(--cardHeight));
-        gap: var(--cardMargin);
-        padding-bottom: calc(var(--cards) * var(--cardTopPadding));
-        margin-bottom: var(--cardMargin);
-    }
-
-    .card-body {
-        flex-direction: column; /* Stack content vertically in smaller spaces */
-        padding: 10%; /* Increase padding for better spacing */
-        border-radius: 20px; /* Adjust border radius for smaller screens */
-    }
-
-    #project .title h1 {
-        font-size: 1em; /* Adjust headline font size for readability */
     }
 }
