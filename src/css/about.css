@@ -36,7 +36,7 @@ html, body {
     right: 50px; /* Position to the upper right */
     -webkit-user-select: none;
     user-select: none;
-    visibility: hidden; /* Initially hide the menu toggle */
+    visibility: visible; /* Initially hide the menu toggle */
     z-index: 1000;
     cursor: pointer;
 }
@@ -261,6 +261,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: flex-end; /* Stick the image to the bottom */
+
 }
 
 #about-card img {

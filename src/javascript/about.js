@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     gsap.registerPlugin(ScrollTrigger);
+
     gsap.from('#about-content h2, #about-content p', {
         scrollTrigger: '#about-content',
         opacity: 0,
@@ -11,6 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
     const checkbox = menuToggle.querySelector('input[type="checkbox"]');
     const spans = menuToggle.querySelectorAll('span');
+    menuToggle.addEventListener('change', handleCheckboxChange);
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('splashscreen').style.display = 'none';
+            handleMenuColors();
+            window.scrollTo(0, 0);
+        }, 500);
+    });
     const sections = {
         'main-screen': document.getElementById('main-screen'),
         'about': document.getElementById('about'),
@@ -73,17 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    menuToggle.addEventListener('change', handleCheckboxChange);
-
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            document.getElementById('splashscreen').style.display = 'none';
-            document.getElementById('menuToggle').style.visbility = 'visible';
-
-            handleMenuColors();
-            window.scrollTo(0, 0);
-        }, 500);
-    });
 
 
 });
