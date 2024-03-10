@@ -148,6 +148,8 @@ html, body {
     color: var(--black); /* Set text color */
     font-size: 8.5em; /* Set font size */
     font-weight: bolder; /* Set text to bold */
+    transition: color 0.3s ease; /* Smooth color transition */
+    pointer-events: auto; /* Enable pointer events */
     margin-bottom: 10px; /* Add space between links */
 }
 
@@ -159,6 +161,7 @@ html, body {
 }
 
 #menu-social a {
+
     text-decoration: none;
     color: var(--white); /* Set icon color */
     font-size: 2em; /* Set icon size */
@@ -166,6 +169,8 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: color 0.3s ease; /* Smooth color transition */
+    pointer-events: auto; /* Enable pointer events */
     width: 60px; /* Adjust circle diameter */
     height: 60px; /* Adjust circle diameter */
     border-radius: 50%; /* Make it a circle */
@@ -420,7 +425,7 @@ main{
 
 #project-button{
     padding: 40px;
-z-index: 10;
+    z-index: 10;
 }
 
 .project-button button {

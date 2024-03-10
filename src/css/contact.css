@@ -10,11 +10,12 @@
     --cardHeight: 50vh;
     --cardTopPadding: 2.5em;
     --cardMargin: 4vw;
-    --white: #d9d9d9;
-    --dark-white: rgba(157, 157, 157, 0.69);
+    --white: #FAF4D4;
+    --dark-white: #585756;
     --grey: #181818;
-    --black: #111111;
+    --black: #1F2125;
 }
+
 html {
     scroll-behavior: smooth;
 }
@@ -160,15 +161,30 @@ html, body {
 
 #menu-social a {
     text-decoration: none;
-    color: var(--black); /* Set icon color */
-    font-size: 2.5em; /* Set icon size */
+    color: var(--white); /* Set icon color */
+    font-size: 2em; /* Set icon size */
     margin: 0 10px; /* Add space between icons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Adjust circle diameter */
+    height: 60px; /* Adjust circle diameter */
+    border-radius: 50%; /* Make it a circle */
+    background-color: var(--black); /* Set background color to white */
 }
 
-
-#menu a:hover {
-    color: var(--dark-white); /* Hover state color */
+#menu-social i {
+    color: var(--white); /* Set icon color to black */
+    font-size: 70%; /* Adjust icon size relative to circle */
 }
+
+#menu-nav a:hover {
+    color: var(--dark-white); /* Change text color on hover */
+}
+#menu-social a:hover {
+    background-color: var(--dark-white); /* Change background color on hover */
+}
+
 #menuToggle, header {
     position: fixed;
 
