@@ -71,20 +71,20 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', () => {
         setTimeout(() => {
             document.getElementById('splashscreen').style.display = 'none';
-            document.getElementById('menuToggle').style.visibility = 'visible';
-            //document.getElementById('main-screen').classList.remove('hidden');
-            // animateMainScreen();
+            document.getElementById('menuToggle').style.visbility = 'visible';
+            gsap.from('#about-content h2, #about-content p', {
+                scrollTrigger: '#about-content',
+                opacity: 0,
+                duration: 1,
+                delay: 0.5,
+                stagger: 0.3
+            });
+
             handleMenuColors();
             window.scrollTo(0, 0);
         }, 500);
     });
 
-    // function animateMainScreen() {
-    //     //gsap.to('#main-image', { duration: 1.5, opacity: 100, scale: 0.9, delay: 1 });
-    //     gsap.to('#about-title h1', { duration: 0.5, y: -560, delay: 0, scale: 0.4 });
-    //     setTimeout(() => {
-    //         document.getElementById('menuToggle').style.visibility = 'visible';
-    //     }, 3000);
-    // }
+
 });
 

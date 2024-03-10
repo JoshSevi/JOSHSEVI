@@ -10,10 +10,10 @@
     --cardHeight: 50vh;
     --cardTopPadding: 2.5em;
     --cardMargin: 4vw;
-    --white: #d9d9d9;
-    --dark-white: rgba(157, 157, 157, 0.81);
-    --grey: rgba(24, 24, 24, 0.4);
-    --black: #111111;
+    --white: #FAF4D4;
+    --dark-white: #585756;
+    --grey: #181818;
+    --black: #1F2125;
 }
 html {
     scroll-behavior: smooth;
@@ -26,6 +26,7 @@ html, body {
     font-family: 'Helvetica', sans-serif;
     position: relative;
     flex-direction: column;
+    background-color: var(--black);
 }
 
 /*----NAV MENU----*/
@@ -68,6 +69,7 @@ html, body {
     border-radius: 4px;
     transform-origin: 0px 0px;
     box-shadow:none;
+    opacity: 0.6;
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     opacity 0.55s ease,
@@ -147,7 +149,7 @@ html, body {
     text-decoration: none;
     color: var(--black); /* Set text color */
     font-size: 8.5em; /* Set font size */
-    font-weight: bold; /* Set text to bold */
+    font-weight: bolder; /* Set text to bold */
     margin-bottom: 10px; /* Add space between links */
 }
 
@@ -160,15 +162,36 @@ html, body {
 
 #menu-social a {
     text-decoration: none;
-    color: var(--black); /* Set icon color */
-    font-size: 2.5em; /* Set icon size */
+    color: var(--white); /* Set icon color */
+    font-size: 2em; /* Set icon size */
     margin: 0 10px; /* Add space between icons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Adjust circle diameter */
+    height: 60px; /* Adjust circle diameter */
+    border-radius: 50%; /* Make it a circle */
+    background-color: var(--black); /* Set background color to white */
 }
 
+#menu-social i {
+    color: var(--white); /* Set icon color to black */
+    font-size: 70%; /* Adjust icon size relative to circle */
+}
+
+#menu-nav a:hover {
+    color: var(--dark-white); /* Change text color on hover */
+}
 
 #menu a:hover {
-    color: var(--dark-white); /* Hover state color */
+    color: var(--dark-white); /* Change text color on hover */
+
 }
+
+#menu-social a:hover {
+    background-color: var(--dark-white); /* Change background color on hover */
+}
+
 #menuToggle, header {
     position: fixed;
 
@@ -200,11 +223,11 @@ main{
     z-index: 100;
 }
 
-#splashscreen-text h1, #contact-title h1{
+#splashscreen-text h1{
     font-size: 5vw; /* Increased font size */
     font-weight: bolder; /* Make the text bolder */
     text-align: center;
-    color: var(--white); /* Text color changed to black */
+    color: var(--black); /* Text color changed to black */
     z-index: 101; /* Ensure text is above other content */
     position: absolute;
     top: 50%; /* Center vertically */
@@ -218,37 +241,42 @@ main{
 /*----ABOUT----*/
 #about {
     display: flex;
-    height: 100vh;
-    width: 100vw;
     align-items: center;
     justify-content: center;
-    background: var(--black); /* Adjust the background color as needed */
-    color: var(--white);
-    padding: 50px;
+    position: relative;
+    min-height: 100vh;
+    background: #1F2125;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 #about-card {
-    width: 350px; /* Adjust width as needed */
-    height: 450px; /* Adjust height as needed */
+    flex-shrink: 0;
+    width: 350px;
+    height: 450px;
+    position: sticky;
     background: var(--white);
-    padding: 0;
-    box-sizing: border-box;
-    border-radius: 20px; /* Adjust border radius as needed */
-    box-shadow: -10px 10px 20px var(--dark-white); /* Optional: Adds shadow to the card */
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; /* Stick the image to the bottom */
-    margin-right: 100px; /* Adjust spacing between card and content */
+    border-radius: 30px;
+    top: 50%;
+    overflow: hidden;
+    transform: translateY(-50%);
+    margin-right: 50px; /* Adjust based on your layout */
 }
 
 #about-card img {
     width: 100%;
     height: auto;
-    border-radius: 15px; /* Adjust to match the profile image border radius */
+    bottom: 0;
+    position: absolute;
+    border-radius: 30px; /* Adjust to match the profile image border radius */
 }
 
 #about-content {
-    max-width: 500px; /* Adjust max-width as needed */
+    max-width: 600px;
+    overflow-y: auto;
+    height: 40vh;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 #about-content h2 {
@@ -261,17 +289,17 @@ main{
     font-size: 1.3em;
     line-height: 1.6; /* Adjust line height for better readability */
     text-align: justify; /* Justify the text within <p> elements */
-    color: var(--dark-white);
+    color: var(--white);
+    font-weight: lighter;
+    opacity: 0.6;
 }
-
-
 
 
 
 /*----CONTACT----*/
 #contact{
     position: relative;
-    height: 100vh;
+    height: 120vh;
     width: 100vw;
     margin: 0%;
     font-family: Arial, sans-serif;
@@ -363,13 +391,6 @@ footer {
         white-space: nowrap; /* Ensures text stays in one line */
     }
 
-    #main-title h1 {
-        /* font-size: 6em; */ /* Smaller font size for mobile devices */
-        white-space: normal; /* Allows text wrapping */
-        font-size: 8vw; /* Adjust font size for smaller screens */
-        margin: 5000em;
-        text-align: center;
-    }
 
     #menuToggle {
         visibility: visible;
@@ -392,22 +413,19 @@ footer {
         white-space: nowrap; /* Ensures text stays in one line */
     }
 
-    /*-----PROJECT-----*/
-    #cards {
-
-        grid-template-rows: repeat(var(--cards), var(--cardHeight));
-        gap: var(--cardMargin);
-        padding-bottom: calc(var(--cards) * var(--cardTopPadding));
-        margin-bottom: var(--cardMargin);
+    #about {
+        flex-direction: column;
     }
 
-    .card-body {
-        flex-direction: column; /* Stack content vertically in smaller spaces */
-        padding: 10%; /* Increase padding for better spacing */
-        border-radius: 20px; /* Adjust border radius for smaller screens */
+    #about-card {
+        margin-right: 0;
+        margin-bottom: 20px;
+        position: relative;
     }
 
-    #project .title h1 {
-        font-size: 1em; /* Adjust headline font size for readability */
+    #about-content {
+        height: auto;
     }
+
+
 }
