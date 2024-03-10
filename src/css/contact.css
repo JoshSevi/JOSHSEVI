@@ -38,7 +38,7 @@ html, body {
     right: 50px; /* Position to the upper right */
     -webkit-user-select: none;
     user-select: none;
-    visibility: visible; /* Initially hide the menu toggle */
+    visibility: hidden; /* Initially hide the menu toggle */
     z-index: 1000;
     cursor: pointer;
 }
@@ -158,8 +158,9 @@ html, body {
 /* Menu Social */
 #menu-social {
     display: flex;
+    bottom: 10vh;
     justify-content: center; /* Center icons horizontally */
-    margin-top: 20px; /* Add space from menu navigation */
+    margin-top: 50px; /* Add space from menu navigation */
 }
 
 #menu-social a {
@@ -199,6 +200,31 @@ html, body {
 
     z-index: 1000; /* Ensure it stays on top of other content */
 
+}
+
+.social-icons {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px; /* Adjust social icon size for mobile */
+    gap: 20px;
+    white-space: nowrap; /* Ensures text stays in one line */
+}
+
+.social-icons a {
+    color: var(--white);
+    justify-content: center;
+    padding: 0 10px;
+    font-size: 1.5em; /* Social icon size */
+}
+
+
+
+/* Hide the menu by default */
+
+.social-icons a:hover {
+    color: var(--dark-white); /* Social media icons hover color */
 }
 
 /*----MAIN----*/

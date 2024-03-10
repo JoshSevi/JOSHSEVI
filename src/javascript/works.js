@@ -72,19 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             document.getElementById('splashscreen').style.display = 'none';
             document.getElementById('menuToggle').style.visibility = 'visible';
-            //document.getElementById('main-screen').classList.remove('hidden');
-            // animateMainScreen();
             handleMenuColors();
             window.scrollTo(0, 0);
         }, 500);
     });
 
-    // function animateMainScreen() {
-    //     //gsap.to('#main-image', { duration: 1.5, opacity: 100, scale: 0.9, delay: 1 });
-    //     gsap.to('#works-title h1', { duration: 0.5, y: -560, delay: 0, scale: 0.4 });
-    //     setTimeout(() => {
-    //         document.getElementById('menuToggle').style.visibility = 'visible';
-    //     }, 3000);
-    // }
+
 });
 
