@@ -10,10 +10,10 @@
     --cardHeight: 50vh;
     --cardTopPadding: 2.5em;
     --cardMargin: 4vw;
-    --white: #d9d9d9;
-    --dark-white: #9d9d9d;
+    --white: #FAF4D4;
+    --dark-white: #585756;
     --grey: #181818;
-    --black: #111111;
+    --black: #1F2125;
 }
 html {
     scroll-behavior: smooth;
@@ -249,7 +249,7 @@ main{
     height: auto; /* Allow the height to adjust */
     max-width: 100%; /* Limit the width to the container's width */
     max-height: 100%; /* Limit the height to the container's height */
-    scale: 1.2;
+    scale: 1.5;
 }
 
 
@@ -261,7 +261,7 @@ main{
     width: 100vw;
     align-items: center;
     justify-content: center;
-    background: var(--grey); /* Adjust the background color as needed */
+    background: var(--black); /* Adjust the background color as needed */
     color: var(--white);
     padding: 50px;
 }
@@ -314,7 +314,7 @@ main{
 #project {
 
     text-align: center; /* Center the title and button */
-    color: white; /* Match text color to the image provided */
+    color: var(--white); /* Match text color to the image provided */
     padding: 5vh 0; /* Provide some padding around the section */
     list-style: none;
     display: grid;
@@ -337,8 +337,8 @@ main{
     margin: 0 auto;
     padding: 1em 1em; /* Padding around the title for spacing */
     font-size: 3.5em;
-    color: white; /* Text color */
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Adjusted text-shadow property */
+    color: var(--white); /* Text color */
+    text-shadow: 0 0 20px var(--dark-white); /* Adjusted text-shadow property */
     position: sticky; /* Ensure the sticky positioning works */
     top: 0; /* Position at the top of the container */
     z-index: 2; /* Ensure the title is above other content */
@@ -383,15 +383,16 @@ main{
     box-sizing: border-box;
     padding: 5%;
     border-radius: 50px;
-    box-shadow: 0 -8px 10px 2px rgba(68, 68, 68, 0.4);
+    box-shadow: 0 -8px 10px 2px var(--dark-white);
     width: var(--cardWidth);
     height: var(--cardHeight);
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.5s;
-    background-color: #d9d9d9;
+    background-color: var(--white);
     position: relative;
+    color: var(--dark-white);
 }
 
 #project-button{
@@ -399,20 +400,20 @@ main{
 }
 
 .project-button button {
-    background-color: #d9d9d9; /* Dark button background */
-    color: #181818; /* Text color for the button */
+    background-color: var(--white); /* Dark button background */
+    color: var(--black); /* Text color for the button */
     border: none; /* Remove default button border */
     padding: 1em 2em; /* Add padding inside the button */
     font-size: 1em; /* Set the font size for the button */
     border-radius: 50px; /* Rounded corners for the button */
     cursor: pointer; /* Change cursor to pointer on hover */
     top: 5vh;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Adjusted text-shadow property */
+    box-shadow: 0 0 20px var(--dark-white); /* Adjusted text-shadow property */
     transition: background-color 0.3s ease; /* Smooth background color transition on hover */
 }
 
 .project-button button:hover {
-    background-color: #555; /* Lighten button background on hover */
+    background-color: var(--dark-white); /* Lighten button background on hover */
 }
 
 

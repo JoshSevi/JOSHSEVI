@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function animateMainScreen() {
-        gsap.to('#main-image', { duration: 1.5, opacity: 100, scale: 0.9, delay: 1 });
+        gsap.to('#main-image', { duration: 1.5, opacity: 100, scale: 0.6, delay: 1 });
         gsap.to('#main-text h1', { duration: 2, y: -180, delay: 1.1, scale: 2 });
         setTimeout(() => {
             document.getElementById('menuToggle').style.visibility = 'visible';
