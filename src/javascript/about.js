@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     gsap.registerPlugin(ScrollTrigger);
+    gsap.from('#about-content h2, #about-content p', {
+        scrollTrigger: '#about-content',
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        stagger: 0.3
+    });
 
     const menuToggle = document.getElementById('menuToggle');
     const checkbox = menuToggle.querySelector('input[type="checkbox"]');
@@ -72,13 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             document.getElementById('splashscreen').style.display = 'none';
             document.getElementById('menuToggle').style.visbility = 'visible';
-            gsap.from('#about-content h2, #about-content p', {
-                scrollTrigger: '#about-content',
-                opacity: 0,
-                duration: 1,
-                delay: 0.5,
-                stagger: 0.3
-            });
 
             handleMenuColors();
             window.scrollTo(0, 0);

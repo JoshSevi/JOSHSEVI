@@ -237,61 +237,61 @@ main{
 }
 
 
-
-/*----ABOUT----*/
+/*----ABOUT SECTION IMPROVEMENTS----*/
 #about {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
     position: relative;
     min-height: 100vh;
     background: #1F2125;
-    padding: 20px;
+    padding: 20vh;
     box-sizing: border-box;
 }
 
 #about-card {
-    flex-shrink: 0;
-    width: 350px;
-    height: 450px;
-    position: sticky;
+    width: 350px; /* Adjust width as needed */
+    height: 450px; /* Adjust height as needed */
     background: var(--white);
-    border-radius: 30px;
-    top: 50%;
-    overflow: hidden;
-    transform: translateY(-50%);
-    margin-right: 50px; /* Adjust based on your layout */
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 20px; /* Adjust border radius as needed */
+    box-shadow: -10px 10px 20px var(--dark-white); /* Optional: Adds shadow to the card */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Stick the image to the bottom */
 }
 
 #about-card img {
     width: 100%;
     height: auto;
-    bottom: 0;
-    position: absolute;
-    border-radius: 30px; /* Adjust to match the profile image border radius */
+    border-radius: 15px; /* Adjust to match the profile image border radius */
 }
 
 #about-content {
-    max-width: 600px;
-    overflow-y: auto;
-    height: 40vh;
+    text-align: center; /* Centers the content text */
+    max-width: 80%; /* Limits the width for better readability */
     padding: 20px;
     box-sizing: border-box;
 }
 
 #about-content h2 {
-    font-size: 4em; /* Adjust font size as needed */
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Space between the title and the paragraph */
     color: var(--white);
+    font-size: 3em;
+    padding: 2vh;
 }
 
 #about-content p {
-    font-size: 1.3em;
-    line-height: 1.6; /* Adjust line height for better readability */
-    text-align: justify; /* Justify the text within <p> elements */
+    text-align: justify; /* Justifies the paragraph */
+    margin: 0 0; /* Centers the paragraph if max-width is less than parent's width */
+    line-height: 1.6;
+    width: 50vw;
     color: var(--white);
     font-weight: lighter;
     opacity: 0.6;
+    font-size: 1.3em;
 }
 
 
@@ -414,17 +414,29 @@ footer {
     }
 
     #about {
-        flex-direction: column;
+        padding: 10vh; /* Reduce padding on smaller screens */
+        justify-content: center;
     }
 
     #about-card {
-        margin-right: 0;
-        margin-bottom: 20px;
-        position: relative;
+        width: 80%; /* Increase width for smaller devices */
+        margin: 0 auto 20px; /* Center the card horizontally and add bottom margin */
+        height: auto; /* Allows the card to resize based on content */
     }
 
     #about-content {
-        height: auto;
+        width: 100%; /* Allows the content to fill the container */
+        padding: 10px; /* Adds padding for text readability */
+        box-sizing: border-box; /* Ensures padding doesn't add to the width */
+    }
+
+    #about-content h2, #about-content p {
+        width: auto; /* Ensures text width is determined by content */
+        margin: 0 auto; /* Centers the text blocks horizontally */
+        justify-content: center;
+        text-align: center; /* Ensures text is centered */
+        font-size: smaller;
+
     }
 
 
