@@ -24,7 +24,7 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Exo',sans-serif;
     position: relative;
     flex-direction: column;
     background: var(--black);
@@ -153,6 +153,7 @@ html, body {
     font-size: 8.5em; /* Set font size */
     font-weight: bolder; /* Set text to bold */
     margin-bottom: 10px; /* Add space between links */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 /* Menu Social */
@@ -310,7 +311,6 @@ main{
 }
 
 #Text-Loop .item-txt {
-    font-family: 'Kumbh Sans', sans-serif; /* Adjust the font family as needed */
     font-size: 20vw; /* Adjust based on your layout's responsiveness */
     line-height: 2.8;
     font-style: normal;
@@ -319,6 +319,7 @@ main{
     text-transform: uppercase;
     color: var(--dark-white);
     max-height: 50%;
+    font-family: 'Slang', 'MigraItalic', sans-serif;
 }
 
 #contact:before {
@@ -349,6 +350,7 @@ main{
     height: 100%;
     /* other styles */
     z-index: 2;
+
 }
 .contact-content hr {
     border: black; /* Remove default border */
@@ -364,6 +366,7 @@ main{
     top: 3vh;
     position: relative;
     color: var(--black);
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 
 }
 
@@ -373,6 +376,7 @@ main{
     position: absolute;
     padding-bottom: 10px;
     color: var(--black);
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content p{
@@ -387,6 +391,7 @@ main{
     margin-bottom: 0;
     position: absolute;
     color: var(--black);
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 
 }
 
@@ -404,6 +409,7 @@ main{
     border-radius: 50px;
     outline: none;
     box-shadow: 0 5px 20px 5px var(--dark-white); /* Add glow effect */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content button:hover {
@@ -507,6 +513,7 @@ main{
     color: var(--black); /* Magenta font color */
     padding-bottom: 20px;
     /*text-shadow: 0 0 5px 10px var(--black); !* Add glow effect *!*/
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 /* Common styles for text fields, email fields, and submit buttons */
@@ -523,6 +530,7 @@ button[type="submit"] {
     border-radius: 20px;
     /*box-shadow: -2px 2px 3px 3px var(--dark-white); !* Add glow effect *!*/
     max-width: 100%;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 /* Specific styles for textarea */
@@ -537,6 +545,7 @@ textarea {
     border-radius: 30px;
     max-width: 100%;
     min-height: 200px; /* Increase the height of the textarea */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 /* Style the submit button */
@@ -545,6 +554,7 @@ button[type="submit"] {
     color: rgba(250, 244, 212, 0.73);
     padding: 14px 20px;
     cursor: pointer;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 button[type="submit"]:hover {
@@ -552,6 +562,7 @@ button[type="submit"]:hover {
     /*opacity: 0.8;*/
     box-shadow: 0 0 8px 4px rgba(31, 33, 37, 0.69); /* Add glow effect */
     color: var(--white); /* Change text color to white */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 

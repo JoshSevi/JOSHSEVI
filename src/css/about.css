@@ -23,7 +23,7 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Exo', sans-serif;
     position: relative;
     flex-direction: column;
     background-color: var(--black);
@@ -151,6 +151,7 @@ html, body {
     font-size: 8.5em; /* Set font size */
     font-weight: bolder; /* Set text to bold */
     margin-bottom: 10px; /* Add space between links */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 /* Menu Social */
@@ -307,6 +308,7 @@ main{
     font-size: 2em;
     margin: 1em 0;
     color: var(--white);
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .software-list, .skills-list{
@@ -341,6 +343,7 @@ main{
     text-align: center; /* This will center the text */
     align-content: center;
     width: 100%; /* Add this line to make the heading take full width */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 
@@ -366,11 +369,13 @@ main{
 .contact-content h1 {
     font-size: 4em;
     margin: 0.2em 0;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content h2 {
     font-size: 2em;
     margin: 0.5em 0;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content button {
@@ -383,10 +388,12 @@ main{
     color: var(--black);
     border-radius: 50px;
     outline: none;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content button:hover {
     background-color: var(--dark-white); /* Social media icons hover color */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .social-icons {
@@ -450,11 +457,9 @@ footer {
 
     .contact-content h1 {
         font-size: 2em;
+        font-family: 'MigraItalic-ExtralightItalic', sans-serif;
     }
 
-    .contact-content h1 {
-        font-size: 2em;
-    }
 
     .social-icons a {
         font-size: 1.5em; /* Adjust social icon size for mobile */

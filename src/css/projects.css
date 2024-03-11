@@ -23,7 +23,7 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Exo', sans-serif;
     position: relative;
     flex-direction: column;
     background-color: var(--black);
@@ -151,6 +151,7 @@ html, body {
     font-size: 8.5em; /* Set font size */
     font-weight: bolder; /* Set text to bold */
     margin-bottom: 10px; /* Add space between links */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 /* Menu Social */
@@ -261,6 +262,7 @@ main{
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh; /* Adjust height to center vertically */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 #project-title h1 {
@@ -269,6 +271,7 @@ main{
     font-size: 3.5em;
     color: var(--white); /* Text color */
     text-shadow: 0 0 20px var(--dark-white); /* Adjusted text-shadow property */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 
@@ -371,6 +374,12 @@ main{
     text-align: center; /* Center the text inside the label */
     z-index: 100;
 }
+.card-info h2 {
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
+}
+.card-info p {
+    font-family: 'Exo', sans-serif;
+}
 
 
 .card-info h2,
@@ -427,11 +436,13 @@ main{
 .contact-content h1 {
     font-size: 4em;
     margin: 0.2em 0;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content h2 {
     font-size: 2em;
     margin: 0.5em 0;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content button {
@@ -444,6 +455,7 @@ main{
     color: var(--black);
     border-radius: 50px;
     outline: none;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content button:hover {
@@ -527,11 +539,9 @@ footer {
 
     .contact-content h1 {
         font-size: 2em;
+        font-family: 'MigraItalic-ExtralightItalic', sans-serif;
     }
 
-    .contact-content h1 {
-        font-size: 2em;
-    }
 
     .social-icons a {
         font-size: 1.5em; /* Adjust social icon size for mobile */

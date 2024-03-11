@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +25,7 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Exo', sans-serif;
     position: relative;
     flex-direction: column;
     background-color: var(--black);
@@ -151,6 +153,7 @@ html, body {
     font-size: 8.5em; /* Set font size */
     font-weight: bolder; /* Set text to bold */
     margin-bottom: 10px; /* Add space between links */
+    font-family: MigraItalic-ExtralightItalic;
 }
 
 /* Menu Social */
@@ -266,6 +269,7 @@ main{
     color: var(--black); /* Text color changed to black */
     z-index: 101; /* Ensure text is above other content */
     white-space: nowrap; /* Ensures text stays in one line *!*/
+
 
 }
 
@@ -396,6 +400,7 @@ main{
     position: sticky; /* Ensure the sticky positioning works */
     top: 0; /* Position at the top of the container */
     z-index: 2; /* Ensure the title is above other content */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 
@@ -449,6 +454,10 @@ main{
     color: var(--dark-white);
 }
 
+.card-info h2{
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
+}
+
 .card-body img {
     width: 100%; /* Ensure the image covers the entire card */
     height: 100%;
@@ -476,6 +485,7 @@ z-index: 10;
     top: 5vh;
     box-shadow: 0 0 20px var(--dark-white); /* Adjusted text-shadow property */
     transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .project-button button:hover {
@@ -505,11 +515,13 @@ z-index: 10;
 .contact-content h1 {
     font-size: 4em;
     margin: 0.2em 0;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content h2 {
     font-size: 2em;
     margin: 0.5em 0;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content button {
@@ -522,6 +534,7 @@ z-index: 10;
     color: var(--black);
     border-radius: 50px;
     outline: none;
+    font-family: 'MigraItalic-ExtralightItalic', sans-serif;
 }
 
 .contact-content button:hover {
@@ -565,6 +578,7 @@ footer {
     text-align: center;
     padding: 10px 0;
     z-index: 6;
+    font-family: 'Exo', sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -604,12 +618,10 @@ footer {
     }
 
     .contact-content h1 {
+        font-family: 'Migra-Extrabold', sans-serif;
         font-size: 2em;
     }
 
-    .contact-content h1 {
-        font-size: 2em;
-    }
 
     .social-icons a {
         font-size: 1.5em; /* Adjust social icon size for mobile */
