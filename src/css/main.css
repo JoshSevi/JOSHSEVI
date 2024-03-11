@@ -449,6 +449,17 @@ main{
     color: var(--dark-white);
 }
 
+.card-body img {
+    width: 100%; /* Ensure the image covers the entire card */
+    height: 100%;
+    object-fit: cover; /* Cover the entire space with the image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Move the image behind other content */
+    border-radius: 20px; /* Add border radius to match the card shape */
+}
+
 #project-button{
     padding: 40px;
 z-index: 10;

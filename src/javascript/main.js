@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('main-introduction').style.visibility = 'visible';
             setTimeout(() => {
                 document.getElementById('menuToggle').style.visibility = 'visible';
-            }, 1000); // Delay setting visibility by 500 milliseconds
-        }, 4000);
+            }, ); // Delay setting visibility by 500 milliseconds
+        }, 3000);
     }
 
 
