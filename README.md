@@ -17,9 +17,6 @@ I treat AI-generated code as a proposed implementation—not a finished solution
   <a href="https://www.joshuasevilla.com">
     <img src="https://img.shields.io/badge/Portfolio-joshuasevilla.com-1f2937?style=for-the-badge" alt="Portfolio" />
   </a>
-  <a href="https://www.linkedin.com/in/joshsevi">
-    <img src="https://img.shields.io/badge/LinkedIn-Joshua%20Sevilla-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn" />
-  </a>
   <a href="mailto:joshuasevilla.work@gmail.com">
     <img src="https://img.shields.io/badge/Email-Contact%20Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
@@ -193,7 +190,6 @@ I am currently open to opportunities in:
 
 📧 **Email:** [joshuasevilla.work@gmail.com](mailto:joshuasevilla.work@gmail.com)
 🌐 **Portfolio:** [joshuasevilla.com](https://www.joshuasevilla.com)
-💼 **LinkedIn:** [linkedin.com/in/joshsevi](https://www.linkedin.com/in/joshsevi)
 
 ---
 
